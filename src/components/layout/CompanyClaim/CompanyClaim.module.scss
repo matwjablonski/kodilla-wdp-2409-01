@@ -60,6 +60,13 @@
         top: 50%;
         right: 0;
         transform: translate(50%, -50%);
+        padding: 0 5px; 
+
+        &.large {
+          width: auto; 
+          padding: 0 10px; 
+          font-size: 16px;
+        }
       }
 
       &:hover {

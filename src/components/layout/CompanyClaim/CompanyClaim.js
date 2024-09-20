@@ -1,13 +1,20 @@
 import React from 'react';
 // import PropTypes from 'prop-types';
+import { useState } from 'react';
 
 import styles from './CompanyClaim.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
-const CompanyClaim = () => (
-  <div className={styles.root}>
+const CompanyClaim = () => {
+  const [cartCount, setCartCount] = useState(99);
+
+  const cartCounterClass = cartCount > 9 ? `${styles.cartCounter} ${styles.large}` : styles.cartCounter;
+
+
+  return (
+    <div className={styles.root}>
     <div className='container'>
       <div className='row align-items-center'>
         <div className={`col text-left ${styles.phoneNumber}`}>
@@ -26,13 +33,14 @@ const CompanyClaim = () => (
             <div className={styles.cartIcon}>
               <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
             </div>
-            <div className={styles.cartCounter}>0</div>
+            <div className={cartCounterClass}>{cartCount}</div>
           </a>
         </div>
       </div>
     </div>
   </div>
-);
+  );
+}
 
 // CompanyClaim.propTypes = {};
 
