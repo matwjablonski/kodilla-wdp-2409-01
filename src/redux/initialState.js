@@ -25,7 +25,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      backgroundPhoto: 'pexels-cottonbro-4505458.jpg',
+      backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
 
     },
     {
@@ -36,7 +36,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      backgroundPhoto: 'pexels-cottonbro-4505458.jpg',
+      backgroundPhoto: 'pexels-valeriya-1129413.jpg',
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -46,7 +46,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
+      backgroundPhoto: 'pexels-element5-1125137.jpg',
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -56,7 +56,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      backgroundPhoto: 'pexels-cottonbro-4505458.jpg',
+      backgroundPhoto: 'pexels-athena-2180883.jpg',
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -86,7 +86,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      backgroundPhoto: 'pexels-heyho-6198655.jpg',
+      backgroundPhoto: 'pexels-taryn-elliott-4112553.jpg',
     },
     {
       id: 'aenean-ru-bristique-9',
