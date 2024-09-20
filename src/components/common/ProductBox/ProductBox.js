@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -21,7 +20,6 @@ const ProductBox = ({ name, price, promo, stars, backgroundPhoto }) => (
           className={styles.image}
         />
       </div>
-
       {promo && <div className={styles.sale}>{promo}</div>}
     </div>
     <div className={styles.buttons}>

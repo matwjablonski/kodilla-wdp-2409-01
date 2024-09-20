@@ -9,14 +9,11 @@
     position: relative;
     padding: 0 10px 0 10px;
     background-image: url('/public/images/productBox/');
-
-
     background: {
       color: #f4f5f7;
       size: contain;
       position: center;
       repeat: no-repeat;
-
     }
 
     img {
@@ -25,11 +22,10 @@
       object-fit: cover; 
       padding: 0;
     }
-
     overflow: hidden;
     height: 300px; 
     align-items: flex-end;
-
+    
     .sale {
       position: absolute;
       top: -30px;
@@ -40,8 +36,6 @@
       color: #ffffff;
       padding: 30px 15px 5px 15px;
     }
-
-  
   }
   .buttons {
     display: flex;
