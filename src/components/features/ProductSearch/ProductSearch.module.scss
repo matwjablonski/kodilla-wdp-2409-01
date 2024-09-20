@@ -11,18 +11,21 @@
     display: flex;
     align-items: center;
     position: relative;
+    transition: 0.5s ease-in-out;
 
     .icon:first-child {
       color: $primary;
       position: absolute;
       left: 10px;
       z-index: 0;
+      transition: 0.5s ease-in-out;
     }
 
     .icon:last-child {
       position: absolute;
       right: 10px;
       z-index: 0;
+      transition: 0.5s ease-in-out;
     }
 
     select {
@@ -32,6 +35,21 @@
       padding: 5px 30px 5px 35px;
       position: relative;
       z-index: 1;
+      font-size: 14px;
+      transition: 0.5s ease-in-out;
+    }
+  }
+
+  .category:hover {
+    background-color: $primary;
+    .icon:first-child {
+      color: #ffffff
+    }
+    .icon:last-child {
+      color: #ffffff;
+    }
+    select {
+      color: #ffffff;
     }
   }
 
