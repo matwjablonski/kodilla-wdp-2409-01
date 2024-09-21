@@ -67,7 +67,7 @@
 
   &.active {
     .iconWrapper {
-      color: #ffffff;
+      color: $white;
 
       &::after {
         background-color: $primary;
@@ -83,7 +83,7 @@
   // Hover effect
   &:hover {
     .iconWrapper {
-      color: #ffffff;
+      color: $white;
 
       &::after {
         background-color: $primary;
