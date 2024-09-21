@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
 
 const CompanyClaim = () => {
-  const [cartCount, setCartCount] = useState(99999999);
+  const [cartCount, setCartCount] = useState(0);
 
   const cartCounterClass = cartCount > 9 ? `${styles.cartCounter} ${styles.large}` : styles.cartCounter;
 
