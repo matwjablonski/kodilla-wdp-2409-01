@@ -31,6 +31,9 @@
     .buttons {
       display: flex;
       justify-content: space-between;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
   }
 
@@ -74,5 +77,29 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .price {
+      transition: background-color 0.25s ease-in-out;
+      background-color: #ffffff;
+      border: solid 1px #292929;
+
+      .priceButton {
+        color: #292929 !important;
+        background-color: #ffffff !important;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      }
+    }
+  }
+}
+
+.root:hover {
+  .buttons {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+  .price .priceButton {
+    color: #ffffff !important;
+    background-color: #292929 !important;
   }
 }
