@@ -4,7 +4,10 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
-
+  a {
+    @extend %interactive-hover;
+  }
+ 
   .photo {
     position: relative;
     padding: 80% 10px 0 10px;
@@ -29,6 +32,7 @@
     }
 
     .buttons {
+      @extend %interactive-hover;
       display: flex;
       justify-content: space-between;
     }
