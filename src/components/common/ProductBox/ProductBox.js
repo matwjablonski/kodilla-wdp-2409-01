@@ -13,7 +13,8 @@ import Button from '../Button/Button';
 import { changeFavorite } from '../../../redux/productsRedux';
 import { useDispatch } from 'react-redux';
 
-const ProductBox = ({ id, name, price, promo, stars }) => {
+
+const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice }) => { 
   const dispatch = useDispatch();
   const handleFavorite = e => {
     e.preventDefault();
@@ -21,6 +22,7 @@ const ProductBox = ({ id, name, price, promo, stars }) => {
   };
 
   return (
+
   <div className={styles.root}>
     <div className={styles.photo}>
       {promo && <div className={styles.sale}>{promo}</div>}
@@ -49,14 +51,28 @@ const ProductBox = ({ id, name, price, promo, stars }) => {
     <div className={styles.actions}>
       <div className={styles.outlines}>
         <Button 
+          className={favorite && styles.active }
           variant='outline'
-          onClick={handleFavorite}
-        >
+          >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button 
+           className={favorite && styles.active }
+          variant='outline'
+          >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
+      </div>
+      <div className={styles.price}>
+        {prevPrice && ( 
+          <Button
+            variant='small'
+            noHover
+            className={styles.prevPrice}
+          >
+            $ {prevPrice}
+          </Button>
+        )}
       </div>
       <div className={styles.price}>
         <Button noHover variant='small'>
