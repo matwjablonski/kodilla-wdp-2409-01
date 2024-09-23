@@ -36,7 +36,10 @@
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
   }
-
+  .prevPrice {
+    margin-right: -45px;
+    text-decoration: line-through;
+  }
   .content {
     text-align: center;
     padding: 20px;
