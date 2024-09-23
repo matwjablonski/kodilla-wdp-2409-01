@@ -1,8 +1,8 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  box-shadow: 2px 3.464px 6px rgba(1, 2, 2, 0.2);
-  background-color: #ffffff;
+  box-shadow: 2px 3.464px 6px $darkerGray;
+  background-color: $white;
 
   :global(.container) > :global(.row) {
     height: 84px;
@@ -32,14 +32,14 @@
       text-decoration: none;
       display: flex;
       align-items: center;
-      border-top: 4px solid #ffffff;
+      border-top: 4px solid $white;
       font-weight: 500;
       letter-spacing: 1px;
 
       &:hover,
       &.active {
         background-color: $primary;
-        color: #ffffff;
+        color: $white;
         border-color: $primary;
       }
 
@@ -92,8 +92,8 @@
     top: 60px;
     left: 0;
     right: 0;
-    background-color: #ffffff;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: $white;
+    box-shadow: 0 2px 10px $darkerGray;
     z-index: 1;
 
     .dropdownMenu {
@@ -111,7 +111,7 @@
 
           &:hover {
             background-color: $primary;
-            color: #ffffff;
+            color: $white;
           }
         }
       }
