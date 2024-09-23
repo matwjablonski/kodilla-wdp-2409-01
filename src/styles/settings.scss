@@ -1,15 +1,42 @@
+// MAIN APPLICATION COLORS
+//COLORS WERE ADDED TO SETTINGS STYLES BUT NOT IMPLEMENTED IN OTHER STYLE MODULES.
+//USE THESE COLOR VARIABLES IN CODE IMPLEMENTED IN THE FUTURE
+//CHANGE STATIC COLORS TO VARIABLES IN ANY EXISTING CODE YOU ARE WORKING ON
+$white: #ffffff;
+$lighterGray: #8b8b8b;
+$lightGray: #434343;
+$gray: #363636;
+$darkGray: #2a2a2a;
+$darkerGray: #292929;
+
+$lightOrange: #ffca84;
+$orange: #d58e32;
+$darkOrange: #a7640e;
+
+$lightGreen: #90ee90;
+$green: #008000;
+$darkGreen: #006400;
+
+$lightBlue: #55d4ff;
+$blue: #0000ff;
+$darkBlue: #00008b;
+
+$lightRed: #fc7270;
+$red: #ff0000;
+$darkRed: #8b0000;
+
+//
 $base-padding: 24px;
-$header-topbar-bg: #434343;
-$header-bg: #363636;
+$header-topbar-bg: $lightGray;
+$header-bg: $gray;
 
-$footer-claim-bg: #2a2a2a;
-$footer-bg: #363636;
+$footer-claim-bg: $darkGray;
+$footer-bg: $gray;
 
-$primary: #d58e32;
+$primary: $orange;
 
-$text-color: #2a2a2a;
-
-$form-border-color: #292929;
+$text-color: $darkGray;
+$form-border-color: $darkerGray;
 
 /* hover settings for buttons */
 
@@ -26,3 +53,6 @@ $scale-factor: 1.2;
     border-color $transition-time, border-bottom $transition-time,
     visibility $transition-time;
 }
+
+
+
