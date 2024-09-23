@@ -13,7 +13,7 @@ import Button from '../Button/Button';
 import { changeFavorite } from '../../../redux/productsRedux';
 import { useDispatch } from 'react-redux';
 
-const ProductBox = ({ id, name, price, promo, stars }) => {
+const ProductBox = ({ id, name, price, promo, stars, favorite }) => {
   const dispatch = useDispatch();
   const handleFavorite = e => {
     e.preventDefault();
@@ -51,6 +51,7 @@ const ProductBox = ({ id, name, price, promo, stars }) => {
         <Button 
           variant='outline'
           onClick={handleFavorite}
+          className={favorite ? styles.favorite : ''}
         >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
