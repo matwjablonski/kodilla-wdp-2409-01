@@ -16,6 +16,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-catscoming-707579.jpg',
+      prevPrice: 40,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -26,7 +27,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
-
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -37,6 +38,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-valeriya-1129413.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -47,6 +49,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-element5-1125137.jpg',
+      prevPrice: 40,
     },
     {
       id: 'aenean-ru-bristique-5',
@@ -57,6 +60,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-athena-2180883.jpg',
+      prevPrice: 40,
     },
     {
       id: 'aenean-ru-bristique-6',
@@ -67,6 +71,8 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-falling4utah-1080696.jpg',
+      newFurniture: false,
+      prevPrice: 40,
     },
     {
       id: 'aenean-ru-bristique-7',
@@ -77,6 +83,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-fotios-photos-909504.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-8',
@@ -87,6 +94,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-taryn-elliott-4112553.jpg',
+      prevPrice: 40,
     },
     {
       id: 'aenean-ru-bristique-9',
@@ -97,6 +105,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-jonathanborba-3316925.jpg',
+      prevPrice: 40,
     },
     {
       id: 'aenean-ru-bristique-10',
@@ -107,6 +116,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-karolina-grabowska-4210376.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-11',
@@ -117,6 +127,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-karolina-grabowska-4210805.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-12',
@@ -127,6 +138,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-kseniachernaya-3952048.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-13',
@@ -137,6 +149,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-mtk402-2098913.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-14',
@@ -147,6 +160,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-pixabay-276534.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-15',
@@ -157,6 +171,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-pixabay-373541.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-16',
@@ -167,6 +182,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-polina-kovaleva-5644692.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-17',
@@ -177,6 +193,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-rachel-claire-5531710.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-18',
@@ -187,6 +204,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-tiana-18128-2995012.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-19',
@@ -197,6 +215,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-zvolskiy-2082092.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-20',
@@ -207,6 +226,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-medhat-ayad-122846-447592.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-21',
@@ -217,6 +237,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-pixabay-279618.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-22',
@@ -227,6 +248,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-athena-2180883.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-23',
@@ -237,6 +259,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-stefanstefancik-919602.jpg',
+      prevPrice: false,
     },
     {
       id: 'aenean-ru-bristique-24',
@@ -247,6 +270,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       backgroundPhoto: 'pexels-houzlook-3356416.jpg',
+      prevPrice: 40,
     },
   ],
   cart: {
