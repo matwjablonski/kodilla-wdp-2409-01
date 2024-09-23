@@ -47,12 +47,8 @@ const ProductBox = ({ name, price, promo, stars, prevPrice }) => (
         </Button>
       </div>
       <div className={styles.price}>
-        {prevPrice && ( 
-          <Button
-            variant='small'
-            noHover
-            className={styles.prevPrice}
-          >
+        {prevPrice && (
+          <Button variant='small' noHover className={styles.prevPrice}>
             $ {prevPrice}
           </Button>
         )}
@@ -72,6 +68,7 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  prevPrice: PropTypes.number,
 };
 
 export default ProductBox;
