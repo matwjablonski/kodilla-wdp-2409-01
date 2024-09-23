@@ -33,7 +33,10 @@
       justify-content: space-between;
     }
   }
-
+  .prevPrice {
+    margin-right: -45px;
+    text-decoration: line-through;
+  }
   .content {
     text-align: center;
     padding: 20px;
