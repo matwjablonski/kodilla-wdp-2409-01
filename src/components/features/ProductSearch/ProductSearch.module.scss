@@ -26,11 +26,6 @@
           // background-color: #333;
           color: $text-color;
           text-decoration: none;
-
-          &:hover {
-            //background-color: black;
-            // color: white;
-          }
         }
 
         &:hover .dropdown-content {
@@ -72,7 +67,6 @@
       margin-left: 15px;
     }
   }
-
 
   .searchField {
     display: flex;
