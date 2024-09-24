@@ -15,7 +15,6 @@ const FeatureBoxes = () => (
   <div className={styles.root}>
     <div className='container'>
       <div className='row d-flex align-items-stretch'>
-        {/* Adjusted grid classes for responsive layout */}
         <div className='col-6 col-sm-6 col-lg-3'>
           <FeatureBox icon={faTruck} active link='placeHolder' className="h-100">
             <h5>Free shipping</h5>
