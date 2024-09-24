@@ -7,16 +7,25 @@
 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
+    padding: 0 10px;
+    background-image: url('/public/images/productBox/');
     background: {
       color: $white;
       size: contain;
       position: center;
       repeat: no-repeat;
     }
-    overflow: hidden;
-    align-items: flex-end;
 
+    img {
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      padding: 0;
+    }
+    overflow: hidden;
+    height: 300px; 
+    align-items: flex-end;
+    
     .sale {
       position: absolute;
       top: -30px;
@@ -27,10 +36,12 @@
       color: $white;
       padding: 30px 15px 5px 15px;
     }
+  }
 
     .buttons {
       display: flex;
       justify-content: space-between;
+      padding: 10px 10px;
       opacity: 0;
       visibility: hidden;
       transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -96,7 +107,6 @@
       }
     }
   }
-}
 
 .root:hover {
   .buttons {

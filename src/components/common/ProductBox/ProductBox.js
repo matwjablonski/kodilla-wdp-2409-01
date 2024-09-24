@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,16 +10,23 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ name, price, promo, stars, prevPrice }) => (
+const ProductBox = ({ name, price, promo, stars, backgroundPhoto, prevPrice }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
-      {promo && <div className={styles.sale}>{promo}</div>}
-      <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-        </Button>
+      <div>
+        <img
+          src={`/images/productBox/${backgroundPhoto}`}
+          alt='Product Photo'
+          className={styles.image}
+        />
       </div>
+      {promo && <div className={styles.sale}>{promo}</div>}
+    </div>
+    <div className={styles.buttons}>
+      <Button variant='small'>Quick View</Button>
+      <Button variant='small'>
+        <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+      </Button>
     </div>
     <div className={styles.content}>
       <h5>{name}</h5>
@@ -70,6 +76,7 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  backgroundPhoto: PropTypes.string,
   prevPrice: PropTypes.number,
 };
 
