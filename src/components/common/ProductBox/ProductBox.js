@@ -16,26 +16,15 @@ import { useState } from 'react';
 
 
 const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalMessage, setModalMessage] = useState('');
   const dispatch = useDispatch();
   const handleFavorite = e => {
     e.preventDefault();
     dispatch(changeFavorite(id));
   };
 
-  const Modal = ({ message, onClose }) => (
-    <div className="modal">
-      <div className="modal-content">
-        <p>{message}</p>
-        <button onClick={onClose}>Close</button>
-      </div>
-    </div>
-  );
-
   const productsToCompare = useSelector((state) => getCompare(state));
 
-  const isCompared = productsToCompare.some(product => product.id === id);
+  const isCompared = productsToCompare.some(product => product.id === id); // returns array with all products added to comparison
 
 
   const handleCompare = e => {
@@ -44,17 +33,11 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
     if (productsToCompare.length < 4) {
       dispatch(changeCompare(id));
     } else {
-      setModalMessage('Two many items for comparison. Only 4 items are allowed.');
-      setIsModalOpen(true);
+      alert('Two many items for comparison. Only 4 items are allowed.');
     }
   } else {
-    setModalMessage('Already in comparison.');
-    setIsModalOpen(true);
+    alert('Already in comparison.');
   }
-};
-
-const closeModal = () => {
-  setIsModalOpen(false);
 };
 
   return (
@@ -69,7 +52,6 @@ const closeModal = () => {
           </Button>
         </div>
       </div>
-      {isModalOpen && <Modal message={modalMessage} onClose={closeModal} />}
       <div className={styles.content}>
         <h5>{name}</h5>
         <div className={styles.stars}>
