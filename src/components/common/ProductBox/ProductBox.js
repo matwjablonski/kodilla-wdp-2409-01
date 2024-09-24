@@ -46,7 +46,7 @@ const ProductBox = ({ name, price, promo, stars, compare, favorite, prevPrice })
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
         <Button 
-           className={favorite && styles.active }
+           className={compare && styles.active }
           variant='outline'
           >
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
@@ -78,6 +78,8 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  compare: PropTypes.string,
+  favorite: PropTypes.string
 };
 
 export default ProductBox;
