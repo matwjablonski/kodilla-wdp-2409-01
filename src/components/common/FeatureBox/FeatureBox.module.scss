@@ -1,7 +1,10 @@
 @import "../../../styles/settings.scss";
 
+.featurelink{
+  text-decoration: none !important;
+}
 .root {
-  border: 1px solid #b6b6b6;
+  border: 1px solid $lighterGray;
   text-align: center;
   margin-top: 40px;
 
@@ -12,6 +15,7 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    transition: 0.6s ease;
 
     .icon {
       position: relative;
@@ -20,7 +24,7 @@
 
     &::before {
       content: "";
-      border: 1px solid #b6b6b6;
+      border: 1px solid $lighterGray;
       position: absolute;
       top: 50%;
       left: 50%;
@@ -28,7 +32,7 @@
       width: 76px;
       height: 76px;
       border-radius: 100%;
-      background-color: #ffffff;
+      background-color: $white;
       z-index: -1;
     }
 
@@ -41,29 +45,45 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      border: 1px solid #b6b6b6;
+      border: 1px solid $lighterGray;
+      transition: 1.0s ease;
     }
   }
 
   .content {
     text-transform: uppercase;
-    color: rgb(42, 42, 42);
+    color: $darkGray;
     margin-top: -0.5rem;
     letter-spacing: 1px;
     font-weight: 300;
+    transition: 0.3s ease;
 
     h5 {
       font-weight: 600;
       margin: 0;
     }
 
-    p {
-    }
   }
 
   &.active {
     .iconWrapper {
-      color: #ffffff;
+      color: $white;
+
+      &::after {
+        background-color: $primary;
+        border-color: $primary;
+      }
+    }
+
+    .content {
+      color: $primary;
+    }
+  }
+
+  // Hover effect
+  &:hover {
+    .iconWrapper {
+      color: $white;
 
       &::after {
         background-color: $primary;
