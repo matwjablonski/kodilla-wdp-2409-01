@@ -32,7 +32,7 @@ const CompanyClaim = () => {
               <div className={styles.cartIcon}>
                 <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
               </div>
-              <div className={cartCounterClass}>{cartCount.toString().slice(0, 5)}</div>
+              <div className={cartCounterClass}>{cartCount}</div>
             </a>
           </div>
         </div>
