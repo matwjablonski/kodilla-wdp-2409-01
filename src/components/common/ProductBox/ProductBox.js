@@ -82,6 +82,7 @@ ProductBox.propTypes = {
   stars: PropTypes.number,
   compare: PropTypes.string,
   favorite: PropTypes.bool,
+  backgroundPhoto: PropTypes.string,
   prevPrice: PropTypes.number,
 };
 
