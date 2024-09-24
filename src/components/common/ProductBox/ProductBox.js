@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -11,16 +10,23 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-const ProductBox = ({ name, price, promo, stars, compare, favorite, prevPrice }) => (
+const ProductBox = ({ name, price, promo, stars, backgroundPhoto, compare, favorite, prevPrice }) => (
   <div className={styles.root}>
     <div className={styles.photo}>
-      {promo && <div className={styles.sale}>{promo}</div>}
-      <div className={styles.buttons}>
-        <Button variant='small'>Quick View</Button>
-        <Button variant='small'>
-          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-        </Button>
+      <div>
+        <img
+          src={`/images/productBox/${backgroundPhoto}`}
+          alt='Product Photo'
+          className={styles.image}
+        />
       </div>
+      {promo && <div className={styles.sale}>{promo}</div>}
+    </div>
+    <div className={styles.buttons}>
+      <Button variant='small'>Quick View</Button>
+      <Button variant='small'>
+        <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+      </Button>
     </div>
     <div className={styles.content}>
       <h5>{name}</h5>
@@ -53,12 +59,8 @@ const ProductBox = ({ name, price, promo, stars, compare, favorite, prevPrice })
         </Button>
       </div>
       <div className={styles.price}>
-        {prevPrice && ( 
-          <Button
-            variant='small'
-            noHover
-            className={styles.prevPrice}
-          >
+        {prevPrice && (
+          <Button variant='small' noHover className={styles.prevPrice}>
             $ {prevPrice}
           </Button>
         )}
@@ -78,8 +80,12 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+<<<<<<< HEAD
   compare: PropTypes.string,
   favorite: PropTypes.string
+=======
+  prevPrice: PropTypes.number,
+>>>>>>> ec4ccbddede43bbe46f528364770094eb3f0e7bc
 };
 
 export default ProductBox;
