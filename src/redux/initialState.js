@@ -77,7 +77,6 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       compare: false,
-      newFurniture: false,
       prevPrice: 40,
     },
     {
