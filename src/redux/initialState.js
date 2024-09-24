@@ -225,7 +225,7 @@ const initialState = {
       stars: 2,
       promo: 'sale',
       newFurniture: true,
-      backgroundPhoto: 'pexels-athena-2180883.jpg',
+      backgroundPhoto: 'pexels-reneterp-1581384.jpg',
     },
     {
       id: 'aenean-ru-bristique-23',
