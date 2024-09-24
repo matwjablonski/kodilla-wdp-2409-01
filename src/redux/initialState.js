@@ -16,6 +16,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
+      backgroundPhoto: 'pexels-catscoming-707579.jpg',
       prevPrice: 40,
     },
     {
@@ -27,6 +28,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
       prevPrice: false,
     },
     {
@@ -38,6 +40,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-valeriya-1129413.jpg',
       prevPrice: false,
     },
     {
@@ -49,6 +52,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-element5-1125137.jpg',
       prevPrice: 40,
     },
     {
@@ -60,6 +64,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-athena-2180883.jpg',
       prevPrice: 40,
     },
     {
@@ -72,6 +77,7 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       newFurniture: false,
+      backgroundPhoto: 'pexels-falling4utah-1080696.jpg',
       prevPrice: 40,
     },
     {
@@ -83,6 +89,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-fotios-photos-909504.jpg',
       prevPrice: false,
     },
     {
@@ -94,6 +101,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-taryn-elliott-4112553.jpg',
       prevPrice: 40,
     },
     {
@@ -105,6 +113,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-jonathanborba-3316925.jpg',
       prevPrice: 40,
     },
     {
@@ -116,6 +125,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-shvetsa-3771691.jpg',
       prevPrice: false,
     },
     {
@@ -127,6 +137,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-karolina-grabowska-4210805.jpg',
       prevPrice: false,
     },
     {
@@ -138,6 +149,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-kseniachernaya-3952048.jpg',
       prevPrice: false,
     },
     {
@@ -149,6 +161,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-mtk402-2098913.jpg',
       prevPrice: false,
     },
     {
@@ -160,6 +173,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-emrecan-2079295.jpg',
       prevPrice: false,
     },
     {
@@ -171,6 +185,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-pixabay-373541.jpg',
       prevPrice: false,
     },
     {
@@ -182,6 +197,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-polina-kovaleva-5644692.jpg',
       prevPrice: false,
     },
     {
@@ -193,6 +209,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-rachel-claire-5531710.jpg',
       prevPrice: false,
     },
     {
@@ -204,6 +221,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-tiana-18128-2995012.jpg',
       prevPrice: false,
     },
     {
@@ -215,6 +233,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-zvolskiy-2082092.jpg',
       prevPrice: false,
     },
     {
@@ -226,6 +245,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-medhat-ayad-122846-447592.jpg',
       prevPrice: false,
     },
     {
@@ -237,6 +257,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-pixabay-279618.jpg',
       prevPrice: false,
     },
     {
@@ -248,6 +269,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-athena-2180883.jpg',
       prevPrice: false,
     },
     {
@@ -259,6 +281,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-igor-starkov-233202-930390.jpg',
       prevPrice: false,
     },
     {
@@ -270,6 +293,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
+      backgroundPhoto: 'pexels-selcukss-28551018.jpg',
       prevPrice: 40,
     },
   ],
