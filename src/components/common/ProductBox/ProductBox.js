@@ -81,7 +81,7 @@ ProductBox.propTypes = {
   promo: PropTypes.string,
   stars: PropTypes.number,
   compare: PropTypes.string,
-  favorite: PropTypes.string,
+  favorite: PropTypes.bool,
   prevPrice: PropTypes.number,
 };
 
