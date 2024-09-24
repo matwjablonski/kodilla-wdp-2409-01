@@ -290,7 +290,7 @@ const initialState = {
       newFurniture: true,
       favorite: false,
       compare: false,
-      backgroundPhoto: 'pexels-athena-2180883.jpg',
+      backgroundPhoto: 'pexels-reneterp-1581384.jpg',
       prevPrice: false,
     },
     {
