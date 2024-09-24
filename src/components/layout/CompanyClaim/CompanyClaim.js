@@ -6,9 +6,19 @@ import styles from './CompanyClaim.module.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons';
+import { useEffect } from 'react';
 
 const CompanyClaim = () => {
   const [cartCount, setCartCount] = useState(0);
+
+  const updateCartCount = (newCount) => {
+    const validatedCount = Math.max(0, Math.min(99999, newCount));
+    setCartCount(validatedCount);
+  };
+
+  useEffect(() => {
+    updateCartCount(cartCount)
+  }, []);
 
   const cartCounterClass = cartCount > 9 ? `${styles.cartCounter} ${styles.large}` : styles.cartCounter;
 
