@@ -1,8 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { getCompare } from '../../../redux/productsRedux';
-import styles from './ComparisonBar.module.scss'; // create and import relevant styles
-
+import styles from './ComparisonBar.module.scss';
 const ComparisonBar = () => {
   const selectedProducts = useSelector(state => getCompare(state));
 
