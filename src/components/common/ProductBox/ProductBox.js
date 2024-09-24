@@ -80,12 +80,9 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
-<<<<<<< HEAD
   compare: PropTypes.string,
-  favorite: PropTypes.string
-=======
+  favorite: PropTypes.string,
   prevPrice: PropTypes.number,
->>>>>>> ec4ccbddede43bbe46f528364770094eb3f0e7bc
 };
 
 export default ProductBox;
