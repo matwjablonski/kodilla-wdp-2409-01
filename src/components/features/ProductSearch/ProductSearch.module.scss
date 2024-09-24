@@ -37,19 +37,24 @@
       z-index: 1;
       font-size: 14px;
       transition: 0.5s ease-in-out;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
     }
   }
 
   .category:hover {
     background-color: $primary;
     .icon:first-child {
-      color: #ffffff
+      color: $white
     }
     .icon:last-child {
-      color: #ffffff;
+      color: $white;
     }
     select {
-      color: #ffffff;
+      color: $white;
     }
   }
 
