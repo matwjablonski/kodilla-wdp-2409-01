@@ -13,6 +13,7 @@
       line-height: 55px;
 
       a {
+        @extend %interactive-hover;
         color: #ffffff;
         font-size: 13px;
 
