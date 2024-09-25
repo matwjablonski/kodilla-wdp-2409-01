@@ -9,7 +9,7 @@ import { faMobileAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-icons
 import { useEffect } from 'react';
 
 const CompanyClaim = () => {
-  const [cartCount, setCartCount] = useState(0);
+  const [cartCount, setCartCount] = useState(9999);
 
   const updateCartCount = (newCount) => {
     const validatedCount = Math.max(0, Math.min(99999, newCount));
@@ -21,6 +21,8 @@ const CompanyClaim = () => {
   }, []);
 
   const cartCounterClass = cartCount > 9 ? `${styles.cartCounter} ${styles.large}` : styles.cartCounter;
+
+  const displayCartCount = cartCount > 99 ? `${cartCount.toString().slice(0, 2)}+` : cartCount;
 
   return (
     <div className={styles.root}>
@@ -42,7 +44,7 @@ const CompanyClaim = () => {
               <div className={styles.cartIcon}>
                 <FontAwesomeIcon className={styles.icon} icon={faShoppingBasket} />
               </div>
-              <div className={cartCounterClass}>{cartCount}</div>
+              <div className={cartCounterClass}>{displayCartCount}</div>
             </a>
           </div>
         </div>
