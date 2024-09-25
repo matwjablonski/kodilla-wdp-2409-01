@@ -1,10 +1,7 @@
 /* selectors */
 export const getAll = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
-
-export const getNew = ({ products }) =>
-  products.filter(item => item.newFurniture === true);
-
+export const getNew = ({ products }) => products.filter(item => item.newFurniture === true);
 export const getCompare = ({products}) => products.filter(product => product.compare === true);
 
 /* actions */ 
@@ -20,8 +17,6 @@ export const changeFavorite = payload => ({
 export const changeCompare = payload => ({
   type: CHANGE_COMPARE, payload
 })
-
-
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
