@@ -12,7 +12,7 @@ import Button from '../Button/Button';
 import { changeFavorite } from '../../../redux/productsRedux';
 import { useDispatch } from 'react-redux';
 
-const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, prevPrice, favorite, prevPrice }) => {
+const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, favorite, prevPrice }) => {
   const dispatch = useDispatch();
   const handleFavorite = e => {
     e.preventDefault();
