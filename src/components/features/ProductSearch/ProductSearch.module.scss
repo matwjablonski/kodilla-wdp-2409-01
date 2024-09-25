@@ -85,4 +85,13 @@
       outline: none;
     }
   }
+
+  @media (max-width: 539px){
+    .searchField{
+      width: 165px;
+      input{
+        width: 140px;
+      }
+    }
+  }
 }
