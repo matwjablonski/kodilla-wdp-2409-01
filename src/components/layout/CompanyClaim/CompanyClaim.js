@@ -22,7 +22,7 @@ const CompanyClaim = () => {
 
   const cartCounterClass = cartCount > 9 ? `${styles.cartCounter} ${styles.large}` : styles.cartCounter;
 
-  const displayCartCount = cartCount > 99 ? `${cartCount.toString().slice(0, 2)}+` : cartCount;
+  const displayCartCount = cartCount > 99 ? `${cartCount.toString().slice(0, 2)}+` : cartCount; // plus display
 
   return (
     <div className={styles.root}>
