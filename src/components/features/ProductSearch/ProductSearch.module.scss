@@ -12,6 +12,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    transition: 0.5s ease-in-out;
 
     ul {
       list-style-type: none;
@@ -33,6 +34,12 @@
           display: block;
         }
       }
+    .icon:first-child {
+      color: $primary;
+      position: absolute;
+      left: 10px;
+      z-index: 0;
+      transition: 0.5s ease-in-out;
     }
 
     .dropdown-content {
@@ -67,6 +74,38 @@
       font-size: 18px;
       margin-right: 10px;
       margin-left: 15px;
+      right: 10px;
+      z-index: 0;
+      transition: 0.5s ease-in-out;
+    }
+
+    select {
+      -webkit-appearance: none;
+      border: 0;
+      background-color: transparent;
+      padding: 5px 30px 5px 35px;
+      position: relative;
+      z-index: 1;
+      font-size: 14px;
+      transition: 0.5s ease-in-out;
+
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .category:hover {
+    background-color: $primary;
+    .icon:first-child {
+      color: $white
+    }
+    .icon:last-child {
+      color: $white;
+    }
+    select {
+      color: $white;
     }
   }
 
