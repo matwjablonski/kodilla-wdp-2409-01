@@ -58,6 +58,10 @@
     }
   }
 
+  a {
+    @extend %interactive-hover;
+  }
+  
   .searchField {
     display: flex;
     align-items: center;
@@ -75,6 +79,7 @@
     }
 
     button {
+      @extend %interactive-hover;
       border: 0;
       background-color: transparent;
       outline: none;

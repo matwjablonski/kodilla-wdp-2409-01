@@ -7,7 +7,7 @@
 
     .menuWrapper {
       h6 {
-        color: #ffffff;
+        color: $white;
         text-transform: uppercase;
         margin: 0 0 1rem 0;
       }
@@ -18,12 +18,13 @@
         list-style: none;
         li {
           a {
+            @extend %interactive-hover;
             font-size: 14px;
             line-height: 30px;
-            color: rgb(169, 169, 169);
+            color: $lighterGray;
 
             &:hover {
-              color: #ffffff;
+              color: $white;
             }
           }
         }
@@ -51,7 +52,7 @@
     .copyright {
       p {
         margin: 0;
-        color: rgb(169, 169, 169);
+        color: $lighterGray;
         font-size: 14px;
         line-height: 26px;
       }
@@ -68,7 +69,8 @@
           margin-left: 1rem;
 
           a {
-            color: rgb(169, 169, 169);
+            @extend %interactive-hover;
+            color: $lighterGray;
             text-decoration: none;
 
             &:hover {
