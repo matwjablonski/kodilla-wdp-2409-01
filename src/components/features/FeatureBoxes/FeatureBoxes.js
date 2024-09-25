@@ -1,13 +1,11 @@
 import React from 'react'; 
 import PropTypes from 'prop-types';
-
 import {
   faTruck,
   faHeadphones,
   faReplyAll,
   faBullhorn,
 } from '@fortawesome/free-solid-svg-icons';
-
 import styles from './FeatureBoxes.module.scss';
 import FeatureBox from '../../common/FeatureBox/FeatureBox';    
 
