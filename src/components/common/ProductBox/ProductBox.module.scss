@@ -4,7 +4,10 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
-
+  a {
+    @extend %interactive-hover;
+  }
+ 
   .photo {
     position: relative;
     padding: 0 10px;
@@ -38,15 +41,22 @@
     }
   }
 
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 10px;
+    .buttons {
+      @extend %interactive-hover;
+      display: flex;
+      justify-content: space-between;
+    }
   }
+
+  .active {
+    background-color: $primary;
+  }
+
   .prevPrice {
     margin-right: -45px;
     text-decoration: line-through;
   }
+
   .content {
     text-align: center;
     padding: 20px;
@@ -92,3 +102,4 @@
     background-color: $primary;
   }
 }
+
