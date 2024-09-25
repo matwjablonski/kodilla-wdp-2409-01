@@ -2,4 +2,5 @@
 
 .root {
   padding: 5rem 0;
+  @extend %interactive-hover;
 }
