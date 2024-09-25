@@ -25,7 +25,6 @@
           display: block;
           padding: 10px;
           font-size: 14px;
-          // background-color: #333;
           color: $text-color;
           text-decoration: none;
         }
@@ -62,7 +61,6 @@
           display: block;
 
           &:hover {
-            //background-color: #ddd;
             color: $primary;
             width: 100%;
           }
@@ -100,7 +98,7 @@
       background-color: $primary;
 
       .icon:first-child {
-        color: $white
+        color: $white;
       }
 
       .icon:last-child {
@@ -112,26 +110,26 @@
       }
     }
   }
-  
+
   a {
     @extend %interactive-hover;
   }
-  
+
   .searchField {
     display: flex;
     align-items: center;
     position: relative;
 
-      input {
-        border: 0;
-        padding-left: 10px;
-        font-size: 14px;
-        outline: none;
+    input {
+      border: 0;
+      padding-left: 10px;
+      font-size: 14px;
+      outline: none;
 
-        &::placeholder {
-          color: $text-color;
-        }
+      &::placeholder {
+        color: $text-color;
       }
+    }
 
     button {
       @extend %interactive-hover;
@@ -140,3 +138,4 @@
       outline: none;
     }
   }
+} 
