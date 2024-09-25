@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
@@ -12,38 +11,41 @@ import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons'
 import Button from '../Button/Button';
 import { changeFavorite, changeCompare, getCompare } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
-import { useState } from 'react';
 
-
-const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice }) => {
+const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice, backgroundPhoto }) => {
   const dispatch = useDispatch();
+  
+  const productsToCompare = useSelector((state) => getCompare(state));
+  const isCompared = productsToCompare.some(product => product.id === id); // Check if the product is already in comparison
+
   const handleFavorite = e => {
     e.preventDefault();
     dispatch(changeFavorite(id));
   };
 
-  const productsToCompare = useSelector((state) => getCompare(state));
-
-  const isCompared = productsToCompare.some(product => product.id === id); // returns array with all products added to comparison
-
-
   const handleCompare = e => {
-  e.preventDefault();
-  if (!isCompared) {
-    if (productsToCompare.length < 4) {
-      dispatch(changeCompare(id));
+    e.preventDefault();
+    if (!isCompared) {
+      if (productsToCompare.length < 4) {
+        dispatch(changeCompare(id));
+      } else {
+        alert('Too many items for comparison. Only 4 items are allowed.');
+      }
     } else {
-      alert('Two many items for comparison. Only 4 items are allowed.');
+      alert('Already in comparison.');
     }
-  } else {
-    alert('Already in comparison.');
-  }
-};
+  };
 
   return (
-
     <div className={styles.root}>
       <div className={styles.photo}>
+        <div>
+          <img
+            src={`/images/productBox/${backgroundPhoto}`}
+            alt='Product Photo'
+            className={styles.image}
+          />
+        </div>
         {promo && <div className={styles.sale}>{promo}</div>}
         <div className={styles.buttons}>
           <Button variant='small'>Quick View</Button>
@@ -72,6 +74,7 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
           <Button
             className={favorite && styles.active}
             variant='outline'
+            onClick={handleFavorite}
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
@@ -85,11 +88,7 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
         </div>
         <div className={styles.price}>
           {prevPrice && (
-            <Button
-              variant='small'
-              noHover
-              className={styles.prevPrice}
-            >
+            <Button variant='small' noHover className={styles.prevPrice}>
               $ {prevPrice}
             </Button>
           )}
@@ -101,15 +100,19 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
         </div>
       </div>
     </div>
-  )
+  );
 };
 
 ProductBox.propTypes = {
-  children: PropTypes.node,
-  name: PropTypes.string,
-  price: PropTypes.number,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   promo: PropTypes.string,
-  stars: PropTypes.number,
+  stars: PropTypes.number.isRequired,
+  compare: PropTypes.bool,
+  favorite: PropTypes.bool,
+  backgroundPhoto: PropTypes.string.isRequired,
+  prevPrice: PropTypes.number,
 };
 
 export default ProductBox;

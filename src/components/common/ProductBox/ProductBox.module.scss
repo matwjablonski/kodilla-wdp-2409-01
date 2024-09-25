@@ -4,19 +4,31 @@
   background-color: #ffffff;
   border: 1px solid #e1e1e1;
   margin-bottom: 2rem;
-
+  a {
+    @extend %interactive-hover;
+  }
+ 
   .photo {
     position: relative;
-    padding: 80% 10px 0 10px;
+    padding: 0 10px;
+    background-image: url('/public/images/productBox/');
     background: {
       color: #f4f5f7;
       size: contain;
       position: center;
       repeat: no-repeat;
     }
-    overflow: hidden;
-    align-items: flex-end;
 
+    img {
+      width: 100%; 
+      height: 100%; 
+      object-fit: cover; 
+      padding: 0;
+    }
+    overflow: hidden;
+    height: 300px; 
+    align-items: flex-end;
+    
     .sale {
       position: absolute;
       top: -30px;
@@ -27,8 +39,10 @@
       color: #ffffff;
       padding: 30px 15px 5px 15px;
     }
+  }
 
     .buttons {
+      @extend %interactive-hover;
       display: flex;
       justify-content: space-between;
     }
@@ -84,24 +98,4 @@
     justify-content: space-between;
     align-items: center;
   }
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
 }
