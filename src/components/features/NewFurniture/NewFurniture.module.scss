@@ -91,8 +91,21 @@
         text-align: left;
         margin-left: 0.4em;
         li {
+          margin: 3px;
           a {
             font-size: 0.70em;
+          }
+        }
+      }
+    }
+    @media (max-width: 380px) {
+      ul {
+        text-align: left;
+        margin-left: 0.4em;
+        li {
+          margin: 2px;
+          a {
+            font-size: 0.48em;
           }
         }
       }
