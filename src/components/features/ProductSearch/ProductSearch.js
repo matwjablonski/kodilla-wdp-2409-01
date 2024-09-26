@@ -18,7 +18,7 @@ const ProductSearch = () => {
           <ul className={styles["dropdown"]}>
             <li>
               {/* Move the list icon here before the dropdown */} 
-              <a href="#">Select a category</a>
+              <a className={styles.atext} href="#">Select a category</a>
               <ul className={styles["dropdown-content"]}>
                 {categories.map((category) => (
                   <li key={category.id}>

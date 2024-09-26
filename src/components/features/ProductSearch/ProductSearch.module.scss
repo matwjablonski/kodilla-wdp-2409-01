@@ -32,7 +32,7 @@
   
     // Change the icon color to black on hover
     .icon-category {
-      color: black;
+      color: $white;
     }
   
     .icon:first-child {
@@ -43,6 +43,14 @@
       color: $white;
     }
   
+    .atext {
+      color: $white;
+    }
+
+    .icon-caret {
+      color: $white;
+    }
+    
     select {
       color: $white;
     }
