@@ -28,7 +28,7 @@ const ComparisonBar = () => {
               />
               <button
                 className={styles.trashButton}
-                // onClick={() => handleFavoriteToggle(product.id)}
+                onClick={() => handleFavoriteToggle(product.id)}
               >
                 <FontAwesomeIcon icon={faTrash} />
               </button>
