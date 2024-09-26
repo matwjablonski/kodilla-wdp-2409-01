@@ -18,11 +18,6 @@ export const changeCompare = payload => ({
   type: CHANGE_COMPARE, payload
 })
 
-/* action creator */ 
-export const changeFavorite = payload => ({
-  type: CHANGE_FAVORITE, payload
-});
-
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {

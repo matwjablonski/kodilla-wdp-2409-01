@@ -8,7 +8,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import styles from './FeatureBoxes.module.scss';
 import FeatureBox from '../../common/FeatureBox/FeatureBox';
-import ComparisonBar from '../ComparisonBar/ComparisonBar';
 
 const FeatureBoxes = () => (
   <div className={styles.root}>
@@ -40,6 +39,7 @@ const FeatureBoxes = () => (
         </div>
       </div>
     </div>
+  </div>
 );
 
 FeatureBoxes.propTypes = {
