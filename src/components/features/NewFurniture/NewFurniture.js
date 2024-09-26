@@ -1,14 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { connect } from 'react-redux';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import ComparisonBar from '../ComparisonBar/ComparisonBar';
+import { useSelector } from 'react';
+import { getCompare } from '../../../redux/productsRedux';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
+    showComparisonBar: false,
   };
 
   handlePageChange(newPage) {
@@ -19,9 +22,16 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
+  componentDidUpdate(prevProps) {
+    const { comparedProducts } = this.props;
+    if (comparedProducts.length > 0 && !this.state.showComparisonBar) {
+      this.setState({ showComparisonBar: true });
+    }
+  }
+
   render() {
-    const { categories, products } = this.props;
-    const { activeCategory, activePage } = this.state;
+    const { categories, products, comparedProducts } = this.props;
+    const { activeCategory, activePage, showComparisonBar } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
@@ -73,7 +83,7 @@ class NewFurniture extends React.Component {
                 <ProductBox {...item} />
               </div>
             ))}
-            <ComparisonBar />
+            {showComparisonBar && comparedProducts.length > 0 && <ComparisonBar />}
           </div>
         </div>
       </div>
@@ -107,4 +117,8 @@ NewFurniture.defaultProps = {
   products: [],
 };
 
-export default NewFurniture;
+const mapStateToProps = (state) => ({
+  comparedProducts: getCompare(state),
+})
+
+export default connect(mapStateToProps)(NewFurniture);

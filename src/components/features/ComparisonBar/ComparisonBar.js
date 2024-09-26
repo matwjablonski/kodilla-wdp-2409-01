@@ -1,31 +1,31 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
-import { getCompare } from '../../../redux/productsRedux';
+import { useSelector, useDispatch } from 'react-redux';
+import { getCompare, changeCompare } from '../../../redux/productsRedux';
 import styles from './ComparisonBar.module.scss';
 
 const ComparisonBar = () => {
   const selectedProducts = useSelector(state => getCompare(state));
-
+  const dispatch = useDispatch(); 
   if (selectedProducts.length === 0) return null;
-  
+
+  const handleFavoriteToggle = (productId) => {
+    dispatch(changeCompare(productId)); 
+  };
+
   return (
     <div className={styles.stickyBar}>
-      {selectedProducts.length > 0 ? (
-        <div className={styles.productRow}>
-          {selectedProducts.map(product => (
-            <div key={product.id} className={styles.productItem}>
-              {/* Display the backgroundPhoto */}
-              <img 
-                src={`/images/productBox/${product.backgroundPhoto}`} 
-                alt={product.name} 
-                className={styles.productImage} 
-              />
-            </div>
-          ))}
-        </div>
-      ) : (
-        <p className={styles.noProducts}>No products to compare</p>
-      )}
+      <div className={styles.productRow}>
+        {selectedProducts.map(product => (
+          <div key={product.id} className={styles.productItem}>
+            <img 
+              src={`/images/productBox/${product.backgroundPhoto}`} 
+              alt={product.name} 
+              className={styles.productImage} 
+              onClick={() => handleFavoriteToggle(product.id)} 
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
