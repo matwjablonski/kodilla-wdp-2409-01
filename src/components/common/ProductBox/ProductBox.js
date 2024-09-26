@@ -9,8 +9,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import { changeFavorite } from '../../../redux/productsRedux';
+import { useDispatch } from 'react-redux';
 
-const ProductBox = ({ name, price, promo, stars, backgroundPhoto, compare, favorite, prevPrice }) => (
+const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, favorite, prevPrice }) => {
+  const dispatch = useDispatch();
+  const handleFavorite = e => {
+    e.preventDefault();
+    dispatch(changeFavorite(id));
+  };
+  return (
   <div className={styles.root}>
     <div className={styles.photo}>
       <div>
@@ -46,9 +54,10 @@ const ProductBox = ({ name, price, promo, stars, backgroundPhoto, compare, favor
     <div className={styles.actions}>
       <div className={styles.outlines}>
         <Button 
-          className={favorite && styles.active }
           variant='outline'
-          >
+          onClick={handleFavorite}
+           className={favorite && styles.active }
+        >
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
         <Button 
@@ -72,7 +81,7 @@ const ProductBox = ({ name, price, promo, stars, backgroundPhoto, compare, favor
       </div>
     </div>
   </div>
-);
+)};
 
 ProductBox.propTypes = {
   children: PropTypes.node,
@@ -84,6 +93,7 @@ ProductBox.propTypes = {
   favorite: PropTypes.bool,
   backgroundPhoto: PropTypes.string,
   prevPrice: PropTypes.number,
+  favorite: PropTypes.bool,
 };
 
 export default ProductBox;
