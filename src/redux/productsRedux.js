@@ -1,21 +1,22 @@
 /* selectors */
 export const getAll = ({ products }) => products;
 export const getCount = ({ products }) => products.length;
+export const getNew = ({ products }) => products.filter(item => item.newFurniture === true);
 
-export const getNew = ({ products }) =>
-  products.filter(item => item.newFurniture === true);
-
-/* action creators */
+/* actions */ 
 const createActionName = actionName => `app/product/${actionName}`;
-const CHANGE_PRODUCT_FAVORITE = createActionName('CHANGE_PRODUCT_FAVORITE');
-const CHANGE_PRODUCT_COMPARE = createActionName('CHANGE_PRODUCT_COMPARE');
+const CHANGE_FAVORITE = createActionName('CHANGE_FAVORITE');
 
-export const changeFavorite = payload => ({ type: CHANGE_PRODUCT_FAVORITE, payload });
-export const changeCompare = payload => ({ type: CHANGE_PRODUCT_COMPARE, payload });
+/* action creator */ 
+export const changeFavorite = payload => ({
+  type: CHANGE_FAVORITE, payload
+});
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
+    case CHANGE_FAVORITE: 
+      return statePart.map(item => item.id === action.payload ? {...item, favorite: !item.favorite } : item )
     default:
       return statePart;
   }
