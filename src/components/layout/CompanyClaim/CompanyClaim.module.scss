@@ -3,15 +3,57 @@
 .root {
   background-color: $header-bg;
 
-  :global(.container) > :global(.row) {
+  :global(.container) > :global(.gridContainer) {
     height: 145px;
   }
 
   a {
     @extend %interactive-hover;
   }
+  .numberGrid { grid-area: number; }
+  .logoGrid { grid-area: logo; }
+  .cartGrid { grid-area: cart; }
 
+  .gridContainer {
+    display: grid;
+    grid-template-areas:
+    'number logo cart'
+    'number logo cart';
+    grid-template-columns: 1fr auto 1fr;
+    gap: 3px;
+    padding: 0px;
+    height: 145px;
+    align-items: center;
+  }
+
+  @media (max-width: 480px) {
+    .gridContainer {
+      grid-template-areas:
+      'logo logo cart cart'
+      'logo logo cart cart'
+      'logo logo number number'
+      'logo logo number number';
+      .logo {
+        text-align: left;
+      }
+      .phoneNumber {
+        justify-self: end;
+        align-self: start;
+      }
+      .cart {
+        justify-self: end;
+        align-self: end;
+        transform: scale(0.75);
+        transform-origin: bottom right;
+      }
+    }
+
+  }
+  .logo {
+    text-align: center;
+  }
   .phoneNumber {
+    text-align: left;
     p {
       margin: 0;
       font-size: 17px;
@@ -27,9 +69,27 @@
         margin-right: 0.8rem;
       }
     }
+    @media (max-width: 768px) {
+      p {
+        font-size: 0.75rem;
+        .icon {
+          font-size: 24px;
+        }
+      }
+    }
+    @media (max-width: 480px) {
+      p {
+        font-size: 0.65rem;
+        .icon {
+          font-size: 18px;
+          margin-right: 0.4rem;
+        }
+      }
+    }
   }
 
   .cart {
+    text-align: right;
     .cartBox {
       display: inline-block;
       position: relative;
