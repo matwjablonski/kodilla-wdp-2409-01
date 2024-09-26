@@ -1,38 +1,79 @@
+@import "../../../styles/settings.scss";
+
 .stickyBar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background-color: #fff;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
-    z-index: 1000;
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .productRow {
-    display: flex;
-    justify-content: center;
-    gap: 15px; // space between images
-  }
-  
-  .productItem {
-    width: 80px;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .productImage {
-    max-width: 100%;
-    max-height: 100%;
-    object-fit: contain;
-  }
-  
-  .noProducts {
-    font-size: 14px;
-    color: #666;
-  }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.productRow {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.productItem {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.imageContainer {
+  position: relative;
+}
+
+.productImage {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trashButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: $primary;
+  border: none;
+  cursor: pointer;
+  display: none;
+  padding: 5px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 29px;
+  display: none;
+}
+
+.imageContainer:hover .trashButton {
+  display: block;
+}
+
+.compareButton {
+  margin-left: auto;
+  background-color: $primary;
+  color: white;
+  border: none; 
+  border-radius: 5px; 
+  padding: 2px 4px;
+  font-size: 12px;
+  cursor: pointer;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
