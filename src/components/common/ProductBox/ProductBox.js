@@ -9,20 +9,19 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+
 import { changeFavorite, changeCompare, getCompare } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
 
 const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice, backgroundPhoto }) => {
   const dispatch = useDispatch();
-  
   const productsToCompare = useSelector((state) => getCompare(state));
   const isCompared = productsToCompare.some(product => product.id === id); // Check if the product is already in comparison
-
   const handleFavorite = e => {
     e.preventDefault();
     dispatch(changeFavorite(id));
   };
-
+  
   const handleCompare = e => {
     e.preventDefault();
     if (!isCompared) {
@@ -113,6 +112,7 @@ ProductBox.propTypes = {
   favorite: PropTypes.bool,
   backgroundPhoto: PropTypes.string.isRequired,
   prevPrice: PropTypes.number,
+  favorite: PropTypes.bool,
 };
 
 export default ProductBox;

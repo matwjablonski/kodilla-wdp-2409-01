@@ -3,10 +3,15 @@
 .featurelink{
   text-decoration: none !important;
 }
+
 .root {
   border: 1px solid $lighterGray;
   text-align: center;
   margin-top: 40px;
+  
+  @media (max-width: 490px) {
+    height: 140px;
+  }
 
   .iconWrapper {
     height: 60px;

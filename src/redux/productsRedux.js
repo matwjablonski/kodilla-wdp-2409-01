@@ -4,12 +4,12 @@ export const getCount = ({ products }) => products.length;
 export const getNew = ({ products }) => products.filter(item => item.newFurniture === true);
 export const getCompare = ({products}) => products.filter(product => product.compare === true);
 
-/* actions */ 
+/* actions */
 const createActionName = actionName => `app/product/${actionName}`;
 const CHANGE_FAVORITE = createActionName('CHANGE_FAVORITE');
 const CHANGE_COMPARE = createActionName('CHANGE_COMPARE');
 
-/* action creator */ 
+/* action creator */
 export const changeFavorite = payload => ({
   type: CHANGE_FAVORITE, payload
 });
@@ -17,6 +17,11 @@ export const changeFavorite = payload => ({
 export const changeCompare = payload => ({
   type: CHANGE_COMPARE, payload
 })
+
+/* action creator */ 
+export const changeFavorite = payload => ({
+  type: CHANGE_FAVORITE, payload
+});
 
 /* reducer */
 export default function reducer(statePart = [], action = {}) {
