@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faListUl, faSearch, faCaretDown } from '@fortawesome/free-solid-svg-icons';
-
 import styles from './ProductSearch.module.scss';
 import { getCategories } from '../../../redux/productsRedux';
 import { useSelector } from 'react-redux';
@@ -15,11 +13,11 @@ const ProductSearch = () => {
   return (
     <form action='' className={styles.root}>
       <div className={styles.category}>
-        {/* Move the list icon here before the dropdown */}
-        <FontAwesomeIcon className={styles.icon} icon={faListUl} />
+      <FontAwesomeIcon className={styles["icon-category"]} icon={faListUl} />
         <div>
           <ul className={styles["dropdown"]}>
             <li>
+              {/* Move the list icon here before the dropdown */} 
               <a href="#">Select a category</a>
               <ul className={styles["dropdown-content"]}>
                 {categories.map((category) => (
@@ -31,7 +29,7 @@ const ProductSearch = () => {
             </li>
           </ul>
         </div>
-        <FontAwesomeIcon className={styles.icon} icon={faCaretDown} />
+        <FontAwesomeIcon className={styles["icon-caret"]} icon={faCaretDown} />
       </div>
       <div className={styles.searchField}>
         <input placeholder='Search products...' type='text' />
