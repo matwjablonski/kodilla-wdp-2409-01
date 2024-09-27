@@ -6,6 +6,15 @@
   height: 45px;
   color: $text-color;
 
+  .icon-category {
+    margin: 0 6px;
+    color: $primary;
+  }
+
+  .icon-caret {
+    margin: 0 6px;
+  }
+
   .category {
     border-right: 1px solid $form-border-color;
     display: flex;
@@ -13,16 +22,100 @@
     position: relative;
     transition: 0.5s ease-in-out;
 
+    &:hover {
+      background-color: $primary;
+    }
+  }
+
+  .category:hover {
+    background-color: $primary;
+  
+    // Change the icon color to black on hover
+    .icon-category {
+      color: $white;
+    }
+  
+    .icon:first-child {
+      color: $white;
+    }
+  
+    .icon:last-child {
+      color: $white;
+    }
+  
+    .atext {
+      color: $white;
+    }
+
+    .icon-caret {
+      color: $white;
+    }
+    
+    select {
+      color: $white;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      position: relative;
+
+      a {
+        display: block;
+        padding: 10px;
+        font-size: 14px;
+        color: $text-color;
+        text-decoration: none;
+      }
+
+      &:hover .dropdown-content {
+        display: block;
+      }
+    }
+
     .icon:first-child {
       color: $primary;
       position: absolute;
       left: 10px;
       z-index: 0;
       transition: 0.5s ease-in-out;
+      margin: 20px;
     }
 
-    .icon:last-child {
+    .dropdown-content {
+      display: none;
       position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+
+      li {
+        display: block;
+      }
+
+      a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+
+        &:hover {
+          color: $primary;
+          width: 100%;
+        }
+      }
+    }
+
+    .icon {
+      color: $primary;
+      font-size: 18px;
+      margin-right: 10px;
+      margin-left: 15px;
       right: 10px;
       z-index: 0;
       transition: 0.5s ease-in-out;
@@ -47,42 +140,45 @@
 
   .category:hover {
     background-color: $primary;
+
     .icon:first-child {
-      color: $white
+      color: $white;
     }
+
     .icon:last-child {
       color: $white;
     }
+
     select {
       color: $white;
     }
   }
+}
 
-  a {
-    @extend %interactive-hover;
+a {
+  @extend %interactive-hover;
+}
+
+.searchField {
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  input {
+    border: 0;
+    padding-left: 10px;
+    font-size: 14px;
+    outline: none;
+
+    &::placeholder {
+      color: $text-color;
+    }
   }
-  
-  .searchField {
-    display: flex;
-    align-items: center;
-    position: relative;
 
-    input {
-      border: 0;
-      padding-left: 10px;
-      font-size: 14px;
-      outline: none;
-
-      &::placeholder {
-        color: $text-color;
-      }
-    }
-
-    button {
-      @extend %interactive-hover;
-      border: 0;
-      background-color: transparent;
-      outline: none;
-    }
+  button {
+    @extend %interactive-hover;
+    border: 0;
+    background-color: transparent;
+    outline: none;
   }
 }
