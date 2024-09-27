@@ -16,12 +16,10 @@ class NewFurniture extends React.Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    // return the object with new state when props changed
     const { categories, products } = props;
     const { activeCategory } = state;
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
-    console.log('getderivedstatefromprops');
     return { ...state, pagesCount, categoryProducts, categories };
   }
 
@@ -36,14 +34,12 @@ class NewFurniture extends React.Component {
   rightAction() {
     if (this.state.activePage < this.state.pagesCount - 1) {
       this.setState({ ...this.state, activePage: this.state.activePage + 1 });
-      // console.log('leftAction');
     }
   }
 
   leftAction() {
     if (this.state.activePage > 0) {
       this.setState({ ...this.state, activePage: this.state.activePage - 1 });
-      // console.log('rightAction');
     }
   }
 
