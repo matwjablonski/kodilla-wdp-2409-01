@@ -58,6 +58,7 @@ const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, f
           onClick={handleFavorite}
            className={favorite && styles.active }
         >
+
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
         <Button className={compare && styles.active} variant='outline'>
