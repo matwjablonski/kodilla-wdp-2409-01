@@ -4,20 +4,19 @@
   background-color: $white;
   border: 1px solid $lighterGray;
   margin-bottom: 2rem;
+
   a {
     @extend %interactive-hover;
   }
- 
+
   .photo {
     position: relative;
     padding: 0 10px;
     background-image: url('/public/images/productBox/');
-    background: {
-      color: $white;
-      size: contain;
-      position: center;
-      repeat: no-repeat;
-    }
+    background-color: #f4f5f7;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
     img {
       width: 100%; 
@@ -25,10 +24,11 @@
       object-fit: cover; 
       padding: 0;
     }
+
     overflow: hidden;
     height: 300px; 
     align-items: flex-end;
-    
+
     .sale {
       position: absolute;
       top: -30px;
@@ -40,15 +40,14 @@
       padding: 30px 15px 5px 15px;
     }
   }
-
-    .buttons {
-      @extend %interactive-hover;
-      display: flex;
-      justify-content: space-between;
-      padding: 10px 10px;
-      opacity: 0;
-      visibility: hidden;
-    }
+  
+  .buttons {
+    @extend %interactive-hover;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    opacity: 0;
+    visibility: hidden;
   }
 
   .active {
@@ -126,5 +125,9 @@
   .price .priceButton {
     color: $white ;
     background-color: $darkerGray;
+  }
+
+  .favorite {
+    background-color: $primary;
   }
 }
