@@ -9,19 +9,20 @@ class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    pagesCount: 0, 
-    activePage: 0, 
+    pagesCount: 0,
+    activePage: 0,
     categoryProducts: [],
-    categories: []
+    categories: [],
   };
 
-  static getDerivedStateFromProps(props, state) { // return the object with new state when props changed
+  static getDerivedStateFromProps(props, state) {
+    // return the object with new state when props changed
     const { categories, products } = props;
     const { activeCategory } = state;
     const categoryProducts = products.filter(item => item.category === activeCategory);
     const pagesCount = Math.ceil(categoryProducts.length / 8);
-    console.log('getderivedstatefromprops')
-    return {...state, pagesCount, categoryProducts, categories};
+    console.log('getderivedstatefromprops');
+    return { ...state, pagesCount, categoryProducts, categories };
   }
 
   handlePageChange(newPage) {
@@ -33,23 +34,27 @@ class NewFurniture extends React.Component {
   }
 
   rightAction() {
-    if(this.state.activePage < this.state.pagesCount - 1) {
-      this.setState({...this.state, activePage: this.state.activePage + 1});
-      console.log('leftAction');
+    if (this.state.activePage < this.state.pagesCount - 1) {
+      this.setState({ ...this.state, activePage: this.state.activePage + 1 });
+      // console.log('leftAction');
     }
-    
   }
 
   leftAction() {
-    if(this.state.activePage < 0) {
-      this.setState({...this.state, activePage: this.state.activePage - 1});
-      console.log('rightAction');
+    if (this.state.activePage > 0) {
+      this.setState({ ...this.state, activePage: this.state.activePage - 1 });
+      // console.log('rightAction');
     }
   }
 
-
   render() {
-    const { activeCategory, activePage, pagesCount, categories, categoryProducts } = this.state; 
+    const {
+      activeCategory,
+      activePage,
+      pagesCount,
+      categories,
+      categoryProducts,
+    } = this.state;
     console.log(this.state);
 
     const dots = [];
@@ -67,7 +72,10 @@ class NewFurniture extends React.Component {
     }
 
     return (
-      <Swipeable leftAction={this.leftAction.bind(this)} rightAction={this.rightAction.bind(this)}>
+      <Swipeable
+        leftAction={this.leftAction.bind(this)}
+        rightAction={this.rightAction.bind(this)}
+      >
         <div className={styles.root}>
           <div className='container'>
             <div className={styles.panelBar}>
@@ -95,11 +103,13 @@ class NewFurniture extends React.Component {
               </div>
             </div>
             <div className='row'>
-              {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-                <div key={item.id} className='col-3'>
-                  <ProductBox {...item} />
-                </div>
-              ))}
+              {categoryProducts
+                .slice(activePage * 8, (activePage + 1) * 8)
+                .map(item => (
+                  <div key={item.id} className='col-3'>
+                    <ProductBox {...item} />
+                  </div>
+                ))}
             </div>
           </div>
         </div>
