@@ -19,10 +19,11 @@ class NewFurniture extends React.Component {
   }
 
   render() {
-    const { categories, products } = this.props;
+    const { categories, products, rwd } = this.props;
     const { activeCategory, activePage } = this.state;
 
     const categoryProducts = products.filter(item => item.category === activeCategory);
+    const itemsPerPage = rwd.products || 8;
     const pagesCount = Math.ceil(categoryProducts.length / 8);
 
     const dots = [];
@@ -67,11 +68,13 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-3'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage)
+              .map(item => (
+                <div key={item.id} className='col-3'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
@@ -80,6 +83,9 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
+  rwd: PropTypes.shape({
+    products: PropTypes.number,
+  }),
   children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
@@ -96,6 +102,7 @@ NewFurniture.propTypes = {
       stars: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
+      products: PropTypes.number,
     })
   ),
 };
@@ -103,6 +110,7 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  rwd: { products: 8 },
 };
 
 export default NewFurniture;
