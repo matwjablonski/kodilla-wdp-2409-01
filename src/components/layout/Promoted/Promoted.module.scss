@@ -1,0 +1,9 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: 1rem 0;
+  @extend %interactive-hover;
+  :global(.container)> :global(.row) {
+    height: 350px;
+  }
+}
