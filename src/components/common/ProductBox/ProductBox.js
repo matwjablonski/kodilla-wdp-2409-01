@@ -58,24 +58,24 @@ const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, f
           onClick={handleFavorite}
            className={favorite && styles.active }
         >
+
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button 
-           className={compare && styles.active }
-          variant='outline'
-          >
+        <Button className={compare && styles.active} variant='outline'>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
       <div className={styles.price}>
         {prevPrice && (
-          <Button variant='small' noHover className={styles.prevPrice}>
+          <Button
+            variant='small'
+            noHover
+            className={`${styles.prevPrice} ${styles.priceButton}`}
+          >
             $ {prevPrice}
           </Button>
         )}
-      </div>
-      <div className={styles.price}>
-        <Button noHover variant='small'>
+        <Button noHover variant='small' className={styles.priceButton}>
           $ {price}
         </Button>
       </div>
