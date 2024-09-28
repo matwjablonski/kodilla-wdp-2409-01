@@ -300,6 +300,22 @@ const initialState = {
       backgroundPhoto: 'pexels-selcukss-28551018.jpg',
     },
   ],
+  currentSale: [
+    {
+      id: 'sale-1',
+      topText: 'indoor',
+      topTextBold: 'furniture',
+      bottomText: 'save up to 50% off all furniture',
+      photo: 'pexels-martinpechy-1866149.jpg',
+    },
+    {
+      id: 'sale-2',
+      topText: 'decorate',
+      topTextBold: 'with us',
+      bottomText: 'Free shipping and unpacking over $400',
+      photo: 'pexels-fotoaibe-1668860.jpg',
+    },
+  ],
   cart: {
     products: [],
   },

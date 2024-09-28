@@ -9,20 +9,34 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
+import { changeFavorite } from '../../../redux/productsRedux';
+import { connect } from 'react-redux';
 
 class HotDeals extends React.Component {
   state = {
     activeDealPage: 0,
+    fading: false,
   };
 
   handleDealPageChange(newDealPage) {
-    this.setState({ activeDealPage: newDealPage });
+    this.setState({ fading: true });
+
+    setTimeout(() => {
+      this.setState({
+        activeDealPage: newDealPage,
+        fading: false,
+      });
+    }, 400);
   }
+
+  handleFavorite = (e, id) => {
+    e.preventDefault();
+    this.props.changeFavorite(id);
+  };
 
   render() {
     const { products } = this.props;
-    const { activeDealPage } = this.state;
-    console.log(products);
+    const { activeDealPage, fading } = this.state;
     const promotedProducts = products.filter(item => item.promoted === true);
     const pagesCount = Math.ceil(promotedProducts.length / 1);
 
@@ -33,19 +47,23 @@ class HotDeals extends React.Component {
           <a
             onClick={() => this.handleDealPageChange(i)}
             className={i === activeDealPage ? styles.active : ''}
-          ></a>
+          >
+            Page {i}
+          </a>
         </li>
       );
     }
 
     return (
       <div className={styles.root}>
-        <div className={styles.test}>
+        <div className={styles.hotDealsContainer}>
           <div className={styles.topText}>
             <p>Hot deals</p>
             <ul className={styles.pagination}>{dealsDots}</ul>
           </div>
-          <div className={styles.product}>
+          <div
+            className={`${styles.product} ${fading ? styles.fadeOut : styles.fadeIn}`}
+          >
             {promotedProducts
               .slice(activeDealPage * 1, (activeDealPage + 1) * 1)
               .map(item => (
@@ -68,15 +86,15 @@ class HotDeals extends React.Component {
                         <h5>days</h5>
                       </div>
                       <div className={`${styles.hours} ${styles.time}`}>
-                        <h3>25</h3>
+                        <h3>3</h3>
                         <h5>hours</h5>
                       </div>
                       <div className={`${styles.minutes} ${styles.time}`}>
-                        <h3>25</h3>
+                        <h3>45</h3>
                         <h5>mins</h5>
                       </div>
                       <div className={`${styles.seconds} ${styles.time}`}>
-                        <h3>25</h3>
+                        <h3>3</h3>
                         <h5>secs</h5>
                       </div>
                     </div>
@@ -100,12 +118,13 @@ class HotDeals extends React.Component {
                     <div className={styles.outlines}>
                       <Button
                         variant='outline'
-                        className={item.favorite && styles.active}
+                        onClick={e => this.handleFavorite(e, item.id)}
+                        className={item.favorite ? styles.active : ''}
                       >
                         <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
                       </Button>
                       <Button
-                        className={item.compare && styles.active}
+                        className={item.compare ? styles.active : ''}
                         variant='outline'
                       >
                         <FontAwesomeIcon icon={faExchangeAlt}>
@@ -145,12 +164,14 @@ HotDeals.propTypes = {
       price: PropTypes.number,
       promoted: PropTypes.bool,
       image: PropTypes.string,
+      favorite: PropTypes.bool,
     })
   ).isRequired,
+  changeFavorite: PropTypes.func.isRequired,
 };
 
-HotDeals.defaultProps = {
-  products: [],
-};
+const mapDispatchToProps = dispatch => ({
+  changeFavorite: id => dispatch(changeFavorite(id)),
+});
 
-export default HotDeals;
+export default connect(null, mapDispatchToProps)(HotDeals);

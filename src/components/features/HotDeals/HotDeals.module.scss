@@ -1,7 +1,7 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: $darkerGray;
+  background-color: $white;
   height: 100%;
   @extend %interactive-hover;
 
@@ -10,6 +10,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0.6rem 1rem;
+    background-color: $darkGray;
 
     p {
       margin: 0;
@@ -57,7 +58,7 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        height: 250px;
+        height: 290px;
         overflow: hidden;
         background-color: $white;
         position: relative;
@@ -158,6 +159,9 @@
         }
 
         .outlines {
+          .active {
+            background-color: $primary;
+          }
           a {
             margin: 0 3px;
           }
@@ -181,7 +185,8 @@
       }
     }
   }
-  .test:hover {
+
+  .hotDealsContainer:hover {
     .productCol {
       .price .priceButton {
         color: $white;
@@ -192,11 +197,39 @@
         .cartButton {
           opacity: 1;
         }
-      
+
         .dealTimeCounter {
           opacity: 0.85;
         }
       }
     }
   }
+
+  /* Fade Effect CSS */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeOut {
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  .fadeIn {
+    animation: fadeIn 0.5s forwards;
+  }
+  
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Promoted.module.scss';
 import HotDeals from '../../features/HotDeals/HotDealsContainer';
-import CurrentSale from '../../features/CurrentSale/CurrentSale';
+import CurrentSale from '../../features/CurrentSale/CurrentSaleContainer';
 
 const Promoted = () => {
   return (
