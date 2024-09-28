@@ -46,6 +46,8 @@ const initialState = {
       favorite: false,
       compare: true,
       backgroundPhoto: 'pexels-valeriya-1129413.jpg',
+      prevPrice: 40,
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-4',

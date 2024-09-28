@@ -18,16 +18,54 @@ class HotDeals extends React.Component {
     fading: false,
   };
 
-  handleDealPageChange(newDealPage) {
+  componentDidMount() {
+    this.startAutoplay();
+  }
+
+  componentWillUnmount() {
+    this.stopAutoplay();
+    clearTimeout(this.autoplayTimeout);
+  }
+
+  startAutoplay = () => {
+    this.autoplayInterval = setInterval(() => {
+      this.handleNextPage();
+    }, 3000);
+  };
+
+  stopAutoplay = () => {
+    clearInterval(this.autoplayInterval);
+  };
+
+  handleNextPage = () => {
+    const { products } = this.props;
+    const promotedProducts = products.filter(item => item.promoted === true);
+    const pagesCount = Math.ceil(promotedProducts.length / 1);
+    const nextPage = (this.state.activeDealPage + 1) % pagesCount;
+
+    this.handleDealPageChange(nextPage, false);
+  };
+
+  handleDealPageChange = (newDealPage, isManual = true) => {
     this.setState({ fading: true });
+
+    if (isManual) {
+      this.stopAutoplay();
+    }
 
     setTimeout(() => {
       this.setState({
         activeDealPage: newDealPage,
         fading: false,
       });
-    }, 400);
-  }
+
+      if (isManual) {
+        this.autoplayTimeout = setTimeout(() => {
+          this.startAutoplay();
+        }, 10000);
+      }
+    }, 300);
+  };
 
   handleFavorite = (e, id) => {
     e.preventDefault();
@@ -45,7 +83,7 @@ class HotDeals extends React.Component {
       dealsDots.push(
         <li key={i}>
           <a
-            onClick={() => this.handleDealPageChange(i)}
+            onClick={() => this.handleDealPageChange(i)} // Manual page change
             className={i === activeDealPage ? styles.active : ''}
           >
             Page {i}
@@ -94,7 +132,7 @@ class HotDeals extends React.Component {
                         <h5>mins</h5>
                       </div>
                       <div className={`${styles.seconds} ${styles.time}`}>
-                        <h3>3</h3>
+                        <h3>25</h3>
                         <h5>secs</h5>
                       </div>
                     </div>

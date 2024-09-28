@@ -72,7 +72,10 @@ class CurrentSale extends React.Component {
               variant='small'
               hover
               className={styles.previousPage}
-              onClick={() => this.handleDealPageChange(activeSalePage - 1)}
+              onClick={e => {
+                e.preventDefault();
+                this.handleDealPageChange(activeSalePage - 1);
+              }}
             >
               <FontAwesomeIcon icon={faArrowLeft}></FontAwesomeIcon>
             </Button>
@@ -80,7 +83,10 @@ class CurrentSale extends React.Component {
               variant='small'
               hover
               className={styles.nextPage}
-              onClick={() => this.handleDealPageChange(activeSalePage + 1)}
+              onClick={e => {
+                e.preventDefault();
+                this.handleDealPageChange(activeSalePage + 1);
+              }}
             >
               <FontAwesomeIcon icon={faArrowRight}></FontAwesomeIcon>
             </Button>
