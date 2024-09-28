@@ -6,7 +6,10 @@
     position: relative;
 
     :global(.row) > * {
-      border-bottom: 4px solid #e2e2e2;
+      border-bottom: 4px solid $brightGray;
+    }
+    a {
+      @extend %interactive-hover;
     }
 
     .heading {
@@ -19,6 +22,16 @@
         line-height: 38px;
         margin: 0;
         letter-spacing: 1px;
+      }
+      @media (max-width: 768px) {
+        h3 {
+          font-size: 0.9em;
+        }
+      }
+      @media (max-width: 576px) {
+        h3 {
+          font-size: 0.70em;
+        }
       }
 
       &::before {
@@ -43,7 +56,8 @@
           font-weight: 600;
 
           a {
-            color: rgb(42, 42, 42);
+            @extend %interactive-hover;
+            color: $darkerGray;
             position: relative;
             text-decoration: none;
             font-size: 18px;
@@ -63,18 +77,52 @@
           }
         }
       }
+    @media (max-width: 768px) {
+      ul {
+        li {
+          a {
+            font-size: 0.85em;
+          }
+        }
+      }
+    }  
+    @media (max-width: 576px) {
+      ul {
+        text-align: left;
+        margin-left: 0.4em;
+        li {
+          margin: 3px;
+          a {
+            font-size: 0.70em;
+          }
+        }
+      }
     }
+    @media (max-width: 380px) {
+      ul {
+        text-align: left;
+        margin-left: 0.4em;
+        li {
+          margin: 2px;
+          a {
+            font-size: 0.48em;
+          }
+        }
+      }
+    }
+  }
 
     .dots {
       position: absolute;
       right: 0;
       top: 0;
+      border-bottom: none;
 
       ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
+        margin: 0 0 0 1rem;
+        padding: 0;
         list-style: none;
-        background-color: #ffffff;
+        background-color: $white;
         transform: translateY(15px);
 
         li {
@@ -82,11 +130,12 @@
           margin-left: 0.5rem;
 
           a {
+            @extend %interactive-hover;
             display: block;
             width: 13px;
             height: 13px;
             border-radius: 6px;
-            background-color: #e1e1e1;
+            background-color: $brightGray;
             font-size: 0;
 
             &.active,

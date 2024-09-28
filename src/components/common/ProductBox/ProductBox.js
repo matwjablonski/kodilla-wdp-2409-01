@@ -9,8 +9,16 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
+import { changeFavorite } from '../../../redux/productsRedux';
+import { useDispatch } from 'react-redux';
 
-const ProductBox = ({ name, price, promo, stars, backgroundPhoto, prevPrice }) => (
+const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, favorite, prevPrice }) => {
+  const dispatch = useDispatch();
+  const handleFavorite = e => {
+    e.preventDefault();
+    dispatch(changeFavorite(id));
+  };
+  return (
   <div className={styles.root}>
     <div className={styles.photo}>
       <div>
@@ -45,28 +53,35 @@ const ProductBox = ({ name, price, promo, stars, backgroundPhoto, prevPrice }) =
     <div className={styles.line}></div>
     <div className={styles.actions}>
       <div className={styles.outlines}>
-        <Button variant='outline'>
+        <Button 
+          variant='outline'
+          onClick={handleFavorite}
+           className={favorite && styles.active }
+        >
+
           <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
         </Button>
-        <Button variant='outline'>
+        <Button className={compare && styles.active} variant='outline'>
           <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
         </Button>
       </div>
       <div className={styles.price}>
         {prevPrice && (
-          <Button variant='small' noHover className={styles.prevPrice}>
+          <Button
+            variant='small'
+            noHover
+            className={`${styles.prevPrice} ${styles.priceButton}`}
+          >
             $ {prevPrice}
           </Button>
         )}
-      </div>
-      <div className={styles.price}>
-        <Button noHover variant='small'>
+        <Button noHover variant='small' className={styles.priceButton}>
           $ {price}
         </Button>
       </div>
     </div>
   </div>
-);
+)};
 
 ProductBox.propTypes = {
   children: PropTypes.node,
@@ -74,7 +89,11 @@ ProductBox.propTypes = {
   price: PropTypes.number,
   promo: PropTypes.string,
   stars: PropTypes.number,
+  compare: PropTypes.string,
+  favorite: PropTypes.bool,
+  backgroundPhoto: PropTypes.string,
   prevPrice: PropTypes.number,
+  favorite: PropTypes.bool,
 };
 
 export default ProductBox;

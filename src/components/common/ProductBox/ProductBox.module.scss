@@ -1,20 +1,22 @@
 @import "../../../styles/settings.scss";
 
 .root {
-  background-color: #ffffff;
-  border: 1px solid #e1e1e1;
+  background-color: $white;
+  border: 1px solid $lighterGray;
   margin-bottom: 2rem;
+
+  a {
+    @extend %interactive-hover;
+  }
 
   .photo {
     position: relative;
     padding: 0 10px;
     background-image: url('/public/images/productBox/');
-    background: {
-      color: #f4f5f7;
-      size: contain;
-      position: center;
-      repeat: no-repeat;
-    }
+    background-color: #f4f5f7;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
 
     img {
       width: 100%; 
@@ -22,31 +24,41 @@
       object-fit: cover; 
       padding: 0;
     }
+
     overflow: hidden;
     height: 300px; 
     align-items: flex-end;
-    
+
     .sale {
       position: absolute;
       top: -30px;
       left: 50%;
       transform: translateX(-50%);
-      background-color: #292929;
+      background-color: $darkerGray;
       border-radius: 50%;
-      color: #ffffff;
+      color: $white;
       padding: 30px 15px 5px 15px;
     }
   }
-
+  
   .buttons {
+    @extend %interactive-hover;
     display: flex;
     justify-content: space-between;
     padding: 10px 10px;
+    opacity: 0;
+    visibility: hidden;
   }
+
+  .active {
+    background-color: $primary;
+  }
+
   .prevPrice {
-    margin-right: -45px;
+    margin-right: 10px;
     text-decoration: line-through;
   }
+
   .content {
     text-align: center;
     padding: 20px;
@@ -61,14 +73,14 @@
     .stars {
       a {
         text-decoration: none;
-        color: rgb(42, 42, 42);
+        color: $darkGray;
       }
     }
   }
 
   .line {
     margin: 0 10px;
-    border-bottom: 1px solid #2a2a2a;
+    border-bottom: 1px solid $darkGray;
     position: relative;
 
     &::before {
@@ -87,5 +99,36 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .price {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      transition: background-color 0.25s ease-in-out;
+      background-color: $white;
+
+      .priceButton {
+        color: $darkerGray;
+        background-color: $white;
+        border: solid 1px $darkerGray;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+      }
+    }
+  }
+}
+
+.root:hover {
+  .buttons {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+  .price .priceButton {
+    color: $white ;
+    background-color: $darkerGray;
+  }
+
+  .favorite {
+    background-color: $primary;
   }
 }

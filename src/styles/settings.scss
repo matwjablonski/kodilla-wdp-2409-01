@@ -3,6 +3,7 @@
 //USE THESE COLOR VARIABLES IN CODE IMPLEMENTED IN THE FUTURE
 //CHANGE STATIC COLORS TO VARIABLES IN ANY EXISTING CODE YOU ARE WORKING ON
 $white: #ffffff;
+$brightGray: #e2e2e2;
 $lighterGray: #8b8b8b;
 $lightGray: #434343;
 $gray: #363636;
@@ -27,7 +28,6 @@ $darkRed: #8b0000;
 
 //
 $base-padding: 24px;
-
 $header-topbar-bg: $lightGray;
 $header-bg: $gray;
 
@@ -37,5 +37,22 @@ $footer-bg: $gray;
 $primary: $orange;
 
 $text-color: $darkGray;
-
 $form-border-color: $darkerGray;
+
+/* hover settings for buttons */
+
+$transition-time: 250ms;
+$bg-transition-time: $transition-time;
+$text-transition-time: $transition-time;
+$motion-transition-time: $transition-time;
+$rotate-angle: 0deg;
+$scale-factor: 1.2;
+
+%interactive-hover {
+  transition: transform $motion-transition-time,
+  background-color $bg-transition-time,
+  color $text-transition-time,
+  border-color $transition-time, 
+  border-bottom $transition-time,
+  visibility $transition-time
+}
