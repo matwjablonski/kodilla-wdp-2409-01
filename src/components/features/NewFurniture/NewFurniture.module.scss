@@ -6,7 +6,7 @@
     position: relative;
 
     :global(.row) > * {
-      border-bottom: 4px solid $white;
+      border-bottom: 4px solid $brightGray;
     }
     a {
       @extend %interactive-hover;
@@ -22,6 +22,16 @@
         line-height: 38px;
         margin: 0;
         letter-spacing: 1px;
+      }
+      @media (max-width: 768px) {
+        h3 {
+          font-size: 0.9em;
+        }
+      }
+      @media (max-width: 576px) {
+        h3 {
+          font-size: 0.70em;
+        }
       }
 
       &::before {
@@ -47,7 +57,7 @@
 
           a {
             @extend %interactive-hover;
-            color: $darkGray;
+            color: $darkerGray;
             position: relative;
             text-decoration: none;
             font-size: 18px;
@@ -67,16 +77,50 @@
           }
         }
       }
+    @media (max-width: 768px) {
+      ul {
+        li {
+          a {
+            font-size: 0.85em;
+          }
+        }
+      }
+    }  
+    @media (max-width: 576px) {
+      ul {
+        text-align: left;
+        margin-left: 0.4em;
+        li {
+          margin: 3px;
+          a {
+            font-size: 0.70em;
+          }
+        }
+      }
     }
+    @media (max-width: 380px) {
+      ul {
+        text-align: left;
+        margin-left: 0.4em;
+        li {
+          margin: 2px;
+          a {
+            font-size: 0.48em;
+          }
+        }
+      }
+    }
+  }
 
     .dots {
       position: absolute;
       right: 0;
       top: 0;
+      border-bottom: none;
 
       ul {
-        margin: 0;
-        padding: 0 0 0 1rem;
+        margin: 0 0 0 1rem;
+        padding: 0;
         list-style: none;
         background-color: $white;
         transform: translateY(15px);
@@ -91,7 +135,7 @@
             width: 13px;
             height: 13px;
             border-radius: 6px;
-            background-color: $white;
+            background-color: $brightGray;
             font-size: 0;
 
             &.active,
