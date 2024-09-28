@@ -6,6 +6,7 @@ import {
   faStar,
   faExchangeAlt,
   faShoppingBasket,
+  faEye,
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
@@ -154,6 +155,9 @@ class HotDeals extends React.Component {
                   <div className={styles.line}></div>
                   <div className={styles.actions}>
                     <div className={styles.outlines}>
+                      <Button variant='outline'>
+                        <FontAwesomeIcon icon={faEye}>Seen</FontAwesomeIcon>
+                      </Button>
                       <Button
                         variant='outline'
                         onClick={e => this.handleFavorite(e, item.id)}
