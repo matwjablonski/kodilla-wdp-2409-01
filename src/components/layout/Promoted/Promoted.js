@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './Promoted.module.scss';
-import HotDeals from '../../features/HotDeals/HotDeals';
+import HotDeals from '../../features/HotDeals/HotDealsContainer';
 import CurrentSale from '../../features/CurrentSale/CurrentSale';
 
 const Promoted = () => {
   return (
     <div className={styles.root}>
       <div className='container'>
-        <div className='row d-flex align-items-stretch'>
+        <div className={styles.promotedTab}>
           <div className='col-4'>
             <HotDeals />
           </div>

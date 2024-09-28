@@ -18,6 +18,8 @@ const initialState = {
       favorite: true,
       compare: true,
       backgroundPhoto: 'pexels-catscoming-707579.jpg',
+      prevPrice: 40,
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -30,6 +32,8 @@ const initialState = {
       favorite: true,
       compare: false,
       backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
+      prevPrice: 40,
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-3',
