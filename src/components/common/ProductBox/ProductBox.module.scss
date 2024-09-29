@@ -40,7 +40,7 @@
       padding: 30px 15px 5px 15px;
     }
   }
-  
+
   .buttons {
     @extend %interactive-hover;
     display: flex;
@@ -50,26 +50,25 @@
     visibility: hidden;
   }
 
-.active {
-  background-color: $primary;
-}
-
-.prevPrice {
-  margin-right: -45px;
-  text-decoration: line-through;
-}
-
-.content {
-  text-align: center;
-  padding: 20px;
-
-  h5 {
-    color: $primary;
-    font-size: 16px;
-    line-height: 24px;
-    letter-spacing: 1px;
+  .active {
+    background-color: $primary;
   }
 
+  .prevPrice {
+    margin-right: -45px;
+    text-decoration: line-through;
+  }
+
+  .content {
+    text-align: center;
+    padding: 20px;
+
+    h5 {
+      color: $primary;
+      font-size: 16px;
+      line-height: 24px;
+      letter-spacing: 1px;
+    }
 
     .stars {
       a {
@@ -94,83 +93,69 @@
       transform: translateX(-50%);
     }
   }
-}
 
-.line {
-  margin: 0 10px;
-  border-bottom: 1px solid #2a2a2a;
-  position: relative;
-
-  &::before {
-    content: "";
-    position: absolute;
-    bottom: -1px;
-    left: 50%;
-    width: 30px;
-    border-bottom: 4px solid $primary;
-    transform: translateX(-50%);
-  }
-}
-
-.actions {
-  padding: 15px 10px 10px 10px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-}
-
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 5px;
-  text-align: center;
   .actions {
     padding: 15px 10px 10px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
 
-    .price {
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  .modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+
+    .actions {
+      padding: 15px 10px 10px 10px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: flex-end;
-      transition: background-color 0.25s ease-in-out;
-      background-color: $white;
 
-      .priceButton {
-        color: $darkerGray;
+      .price {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        transition: background-color 0.25s ease-in-out;
         background-color: $white;
-        border: solid 1px $darkerGray;
-        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+
+        .priceButton {
+          color: $darkerGray;
+          background-color: $white;
+          border: solid 1px $darkerGray;
+          transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+        }
       }
     }
   }
-}
 
-.root:hover {
-  .buttons {
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 0.25s ease;
+  .root:hover {
+    .buttons {
+      opacity: 1;
+      visibility: visible;
+      transition: opacity 0.25s ease;
+    }
+    
+    .price .priceButton {
+      color: $white;
+      background-color: $darkerGray;
+    }
   }
-  .price .priceButton {
-    color: $white ;
-    background-color: $darkerGray;
-  }
-}
+
   .favorite {
     background-color: $primary;
   }
