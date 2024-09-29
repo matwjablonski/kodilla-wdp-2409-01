@@ -21,7 +21,7 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
     e.preventDefault();
     dispatch(changeFavorite(id));
   };
-  
+
   const handleCompare = e => {
     e.preventDefault();
     if (!isCompared) {
@@ -46,12 +46,12 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
           />
         </div>
         {promo && <div className={styles.sale}>{promo}</div>}
-        <div className={styles.buttons}>
-          <Button variant='small'>Quick View</Button>
-          <Button variant='small'>
-            <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
-          </Button>
-        </div>
+      </div>
+      <div className={styles.buttons}>
+        <Button variant='small'>Quick View</Button>
+        <Button variant='small'>
+          <FontAwesomeIcon icon={faShoppingBasket}></FontAwesomeIcon> ADD TO CART
+        </Button>
       </div>
       <div className={styles.content}>
         <h5>{name}</h5>
@@ -92,9 +92,9 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
             </Button>
           )}
         </div>
-          <Button noHover variant='small' className={styles.priceButton}>
-            $ {price}
-          </Button>
+        <Button noHover variant='small' className={styles.priceButton}>
+          $ {price}
+        </Button>
       </div>
     </div>
   );
