@@ -7,9 +7,9 @@ import { changeRWD } from '../../../redux/rwdRedux';
 
 const MainLayout = ({ children }) => {
   /* breakpoints */
-  const desktop = 992;
-  const tablet = 768;
-  const mobile = 576;
+  const desktop = 1200;
+  const smallDesktop = 768;
+  const tablet = 576;
   const [products, setProducts] = useState(8);
   const dispatch = useDispatch();
 
@@ -17,20 +17,26 @@ const MainLayout = ({ children }) => {
     const width = window.innerWidth;
     if (width >= desktop) {
       setProducts(8);
-    } else if (width >= tablet && width < desktop) {
-      setProducts(4);
-    } else if (width >= mobile && width < tablet) {
+    } else if (width >= smallDesktop && width < desktop) {
+      setProducts(3);
+    } else if (width >= tablet && width < smallDesktop) {
       setProducts(2);
+    } else if (width <= 576) {
+      setProducts(1);
     }
   };
 
   useEffect(() => {
-    rwdListener();
-    window.addEventListener('resize', rwdListener);
-    dispatch(changeRWD({ products }));
-
+    const handleResize = () => {
+      rwdListener();
+      dispatch(changeRWD({ products }));
+    };
+  
+    handleResize();
+    window.addEventListener('resize', handleResize);
+  
     return () => {
-      window.removeEventListener('resize', rwdListener);
+      window.removeEventListener('resize', handleResize);
     };
   }, [dispatch, products]);
 
