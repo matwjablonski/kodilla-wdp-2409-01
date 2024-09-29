@@ -143,20 +143,20 @@
     }
   }
 
-  .root:hover {
-    .buttons {
-      opacity: 1;
-      visibility: visible;
-      transition: opacity 0.25s ease;
-    }
-    
-    .price .priceButton {
-      color: $white;
-      background-color: $darkerGray;
-    }
-  }
-
   .favorite {
     background-color: $primary;
+  }
+}
+
+.root:hover {
+  .buttons {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.25s ease;
+  }
+  
+  .price .priceButton {
+    color: $white;
+    background-color: $darkerGray;
   }
 }
