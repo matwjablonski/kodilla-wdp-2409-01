@@ -5,6 +5,15 @@
   border: 1px solid $lighterGray;
   margin-bottom: 2rem;
 
+  .buttons {
+    @extend %interactive-hover;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
   a {
     @extend %interactive-hover;
   }
@@ -12,7 +21,6 @@
   .photo {
     position: relative;
     padding: 0 10px;
-    background-image: url('/public/images/productBox/');
     background-color: #f4f5f7;
     background-size: contain;
     background-position: center;
@@ -39,16 +47,6 @@
       color: $white;
       padding: 30px 15px 5px 15px;
     }
-  }
-
-  .buttons {
-    @extend %interactive-hover;
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 10px;
-    opacity: 0;
-    visibility: hidden;
-    z-index: 1000;
   }
 
   .active {
@@ -100,57 +98,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
 
-  .modal {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-
-  .modal-content {
-    background: white;
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-
-    .actions {
-      padding: 15px 10px 10px 10px;
+    .price {
       display: flex;
-      justify-content: space-between;
       align-items: center;
+      justify-content: flex-end;
+      transition: background-color 0.25s ease-in-out;
+      background-color: $white;
 
-      .price {
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        transition: background-color 0.25s ease-in-out;
+      .priceButton {
+        color: $darkerGray;
         background-color: $white;
-
-        .priceButton {
-          color: $darkerGray;
-          background-color: $white;
-          border: solid 1px $darkerGray;
-          transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
-        }
+        border: solid 1px $darkerGray;
+        transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
       }
     }
   }
-
-  .favorite {
-    background-color: $primary;
-  }
-}
-
-.buttons {
-  z-index: 1001;
 }
 
 .root:hover {
@@ -159,9 +122,12 @@
     visibility: visible;
     transition: opacity 0.25s ease;
   }
-  
   .price .priceButton {
-    color: $white;
+    color: $white ;
     background-color: $darkerGray;
+  }
+
+  .favorite {
+    background-color: $primary;
   }
 }
