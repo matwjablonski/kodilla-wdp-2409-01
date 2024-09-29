@@ -48,6 +48,7 @@
     padding: 10px 10px;
     opacity: 0;
     visibility: hidden;
+    z-index: 1000;
   }
 
   .active {
@@ -146,6 +147,10 @@
   .favorite {
     background-color: $primary;
   }
+}
+
+.buttons {
+  z-index: 1001;
 }
 
 .root:hover {
