@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types'; // Import PropTypes
+import PropTypes from 'prop-types';
 import styles from './Swipeable.module.scss';
 
 const Swipeable = ({ leftAction, rightAction, children }) => {
@@ -29,17 +29,15 @@ const Swipeable = ({ leftAction, rightAction, children }) => {
   );
 };
 
-// Add prop types validation
 Swipeable.propTypes = {
-  leftAction: PropTypes.func, // Optional function for left swipe action
-  rightAction: PropTypes.func, // Optional function for right swipe action
-  children: PropTypes.node.isRequired, // Children prop is required, should be valid React node
+  leftAction: PropTypes.func,
+  rightAction: PropTypes.func,
+  children: PropTypes.node.isRequired,
 };
 
-// Add default props if needed
 Swipeable.defaultProps = {
-  leftAction: null, // Default to null if no left action is provided
-  rightAction: null, // Default to null if no right action is provided
+  leftAction: null,
+  rightAction: null,
 };
 
 export default Swipeable;
