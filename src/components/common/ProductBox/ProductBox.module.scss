@@ -5,6 +5,15 @@
   border: 1px solid $lighterGray;
   margin-bottom: 2rem;
 
+  .buttons {
+    @extend %interactive-hover;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
   a {
     @extend %interactive-hover;
   }
@@ -12,7 +21,6 @@
   .photo {
     position: relative;
     padding: 0 10px;
-    background-image: url('/public/images/productBox/');
     background-color: #f4f5f7;
     background-size: contain;
     background-position: center;
