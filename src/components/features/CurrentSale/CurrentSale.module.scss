@@ -1,0 +1,143 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  @extend %interactive-hover;
+  background-color: $white;
+  height: 100%;
+
+  .currentSalesContainer {
+    position: relative;
+
+    .contentContainer {
+      position: relative;
+      overflow: hidden;
+
+      .saleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        height: 410px;
+
+        .photo {
+          width: auto;
+          height: 100%;
+          overflow: hidden;
+
+          .image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+          }
+        }
+
+        .textContainer {
+          position: absolute;
+          top: 105px;
+          left: 0;
+          width: 100%;
+          height: 45%;
+          background-color: rgba($gray, 0.5);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          padding-top: 7%;
+
+          .topText {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .textOne {
+              margin-right: 1rem;
+              color: $white;
+              text-transform: uppercase;
+              font-size: 45px;
+              font-weight: 200;
+            }
+
+            .textTwo {
+                color: $white;
+                text-transform: uppercase;
+                font-size: 45px;
+                font-weight: 600;
+            }
+          }
+
+          .bottomText {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: $white;
+            text-transform: uppercase;
+            font-size: 18px;
+            font-weight: 200;
+          }
+
+          .shopNow {
+            margin-top: auto;
+            transform: translateY(35%);
+            padding: 1rem 1.5rem;
+            background-color: $white;
+            color: $darkerGray;
+            border-radius: 3px;
+            font-weight: 500;
+          }
+          .shopNow:hover{
+            background-color: $primary;
+            color: $primary;
+          }
+        }
+      }
+    }
+
+    .navigation {
+      display: flex;
+
+      .previousPage{
+        padding: 0.65rem 0;
+        flex-grow: 1;
+        text-align: center;
+        font-size: 20px;
+      }
+      .nextPage {
+        padding: 0.65rem 0;
+        flex-grow: 1;
+        text-align: center;
+        font-size: 20px;
+      }
+    }
+  }
+}
+  /* Fade Effect CSS */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeOut {
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  .fadeIn {
+    animation: fadeIn 0.5s forwards;
+  }
+  

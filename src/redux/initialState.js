@@ -19,6 +19,8 @@ const initialState = {
       favorite: true,
       compare: true,
       backgroundPhoto: 'pexels-catscoming-707579.jpg',
+      prevPrice: 40,
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-2',
@@ -32,6 +34,8 @@ const initialState = {
       favorite: true,
       compare: false,
       backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
+      prevPrice: 40,
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-3',
@@ -45,6 +49,8 @@ const initialState = {
       favorite: false,
       compare: true,
       backgroundPhoto: 'pexels-valeriya-1129413.jpg',
+      prevPrice: 40,
+      promoted: true,
     },
     {
       id: 'aenean-ru-bristique-4',
@@ -318,6 +324,22 @@ const initialState = {
       favorite: false,
       compare: false,
       backgroundPhoto: 'pexels-selcukss-28551018.jpg',
+    },
+  ],
+  currentSale: [
+    {
+      id: 'sale-1',
+      topText: 'indoor',
+      topTextBold: 'furniture',
+      bottomText: 'save up to 50% off all furniture',
+      photo: 'pexels-martinpechy-1866149.jpg',
+    },
+    {
+      id: 'sale-2',
+      topText: 'decorate',
+      topTextBold: 'with us',
+      bottomText: 'Free shipping and unpacking over $400',
+      photo: 'pexels-fotoaibe-1668860.jpg',
     },
   ],
   cart: {
