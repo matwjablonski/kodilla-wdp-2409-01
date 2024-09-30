@@ -10,7 +10,6 @@ class NewFurniture extends React.Component {
     activePage: 0,
     activeCategory: 'bed',
     pagesCount: 0,
-    activePage: 0,
     categoryProducts: [],
     categories: [],
   };
@@ -33,96 +32,91 @@ class NewFurniture extends React.Component {
 
   rightAction() {
     if (this.state.activePage < this.state.pagesCount - 1) {
-      this.setState({ ...this.state, activePage: this.state.activePage + 1 });
+      this.setState({ activePage: this.state.activePage + 1 });
     }
   }
 
   leftAction() {
     if (this.state.activePage > 0) {
-      this.setState({ ...this.state, activePage: this.state.activePage - 1 });
+      this.setState({ activePage: this.state.activePage - 1 });
     }
   }
 
   render() {
-    const {
-      activeCategory,
-      activePage,
-      pagesCount,
-      categories,
-      categoryProducts,
-    } = this.state;
-    console.log(this.state);
+  const { categories, products, rwd } = this.props;
+  const { activeCategory, activePage } = this.state;
 
-    const dots = [];
-    for (let i = 0; i < pagesCount; i++) {
-      dots.push(
-        <li>
-          <a
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
+  // Filter products based on the active category
+  const categoryProducts = products.filter(item => item.category === activeCategory);
+  
+  // Dynamically calculate the number of pages
+  const pagesCount = Math.ceil(categoryProducts.length / rwd.products);
 
-    return (
-      <Swipeable
-        leftAction={this.leftAction.bind(this)}
-        rightAction={this.rightAction.bind(this)}
-      >
-        <div className={styles.root}>
-          <div className='container'>
-            <div className={styles.panelBar}>
-              <div className='row no-gutters align-items-end'>
-                <div className={'col-auto ' + styles.heading}>
-                  <h3>New furniture</h3>
-                </div>
-                <div className={'col ' + styles.menu}>
-                  <ul>
-                    {categories.map(item => (
-                      <li key={item.id}>
-                        <a
-                          className={item.id === activeCategory && styles.active}
-                          onClick={() => this.handleCategoryChange(item.id)}
-                        >
-                          {item.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className={'col-auto ' + styles.dots}>
-                  <ul>{dots}</ul>
-                </div>
+  const dots = [];
+  for (let i = 0; i < pagesCount; i++) {
+    dots.push(
+      <li key={i}>
+        <a
+          onClick={() => this.handlePageChange(i)}
+          className={i === activePage ? styles.active : ''}
+        >
+          page {i + 1}
+        </a>
+      </li>
+    );
+  }
+
+  return (
+    <Swipeable
+      leftAction={this.leftAction}
+      rightAction={this.rightAction}
+    >
+      <div className={styles.root}>
+        <div className='container'>
+          <div className={styles.panelBar}>
+            <div className='row no-gutters align-items-end'>
+              <div className={'col-auto ' + styles.heading}>
+                <h3>New furniture</h3>
               </div>
-            </div>
-            <div className='row'>
-              {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
-                .map(item => (
-                  <div key={item.id} className='col-3'>
-                    <ProductBox {...item} />
-                  </div>
-                ))}
+              <div className={'col ' + styles.menu}>
+                <ul>
+                  {categories.map(item => (
+                    <li key={item.id}>
+                      <a
+                        className={item.id === activeCategory ? styles.active : ''}
+                        onClick={() => this.handleCategoryChange(item.id)}
+                      >
+                        {item.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div className={'col-auto ' + styles.dots}>
+                <ul>{dots}</ul>
+              </div>
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-xl-3 col-l-4 col-md-4 col-sm-6 col-12'>
-                <ProductBox {...item} />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * rwd.products, (activePage + 1) * rwd.products)
+              .map(item => (
+                <div key={item.id} className='col-3'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
-      </Swipeable>
-    );
-  }
+      </div>
+    </Swipeable>
+  );
+ }
 }
 
 NewFurniture.propTypes = {
-  children: PropTypes.node,
+  rwd: PropTypes.shape({
+    products: PropTypes.number,
+  }),
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -145,6 +139,7 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  rwd: { products: 8 },
 };
 
 export default NewFurniture;
