@@ -34,20 +34,38 @@ class NewFurniture extends React.Component {
   handleCategoryChange(newCategory) {
     this.setState({ fade: true }, () => {
       setTimeout(() => {
-        this.setState({ activeCategory: newCategory, fade: false });
+        this.setState({
+          activeCategory: newCategory,
+          activePage: 0,
+          fade: false,
+        });
       }, 300);
     });
   }
 
   rightAction() {
     if (this.state.activePage < this.state.pagesCount - 1) {
-      this.setState({ ...this.state, activePage: this.state.activePage + 1 });
+      this.setState({ fade: true }, () => {
+        setTimeout(() => {
+          this.setState({
+            activePage: this.state.activePage + 1,
+            fade: false,
+          });
+        }, 300);
+      });
     }
   }
 
   leftAction() {
     if (this.state.activePage > 0) {
-      this.setState({ ...this.state, activePage: this.state.activePage - 1 });
+      this.setState({ fade: true }, () => {
+        setTimeout(() => {
+          this.setState({
+            activePage: this.state.activePage - 1,
+            fade: false,
+          });
+        }, 300);
+      });
     }
   }
 
