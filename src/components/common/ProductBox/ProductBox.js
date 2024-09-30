@@ -91,10 +91,10 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
               $ {prevPrice}
             </Button>
           )}
+          <Button noHover variant='small' className={`${styles.priceButton}`}>
+            $ {price}
+          </Button>
         </div>
-        <Button noHover variant='small' className={styles.priceButton}>
-          $ {price}
-        </Button>
       </div>
     </div>
   );
