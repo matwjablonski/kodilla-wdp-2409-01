@@ -14,7 +14,7 @@
 
       a {
         @extend %interactive-hover;
-        color: #ffffff;
+        color: $white;
         font-size: 13px;
 
         &:hover {
@@ -32,6 +32,14 @@
       margin-left: 5px;
     }
   }
+  @media (max-width: 435px) {
+    .topOptions ul li {
+      margin-right: 0.5rem;
+      a {
+        font-size: 70%;
+      }
+    }
+  }
 
   .topMenu ul li {
     margin-left: 1.5rem;
@@ -40,4 +48,22 @@
       margin-right: 5px;
     }
   }
+
+  @media (max-width: 575px) {
+    .topMenu ul li a {
+      font-size: 0;
+      .icon {
+        font-size: 20px;
+      }
+    }
+  }
+  @media (max-width: 410px) {
+    .topMenu ul li {
+      margin-left: 10px;
+      a .icon {
+        font-size: 20px;
+      }
+    }
+  }
 }
+
