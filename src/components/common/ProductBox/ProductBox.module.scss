@@ -144,14 +144,14 @@
   border: solid 1px $darkerGray;
 }
 
-.root .prevPrice,
+.root .prevPrice, 
 .root .priceButton {
   background-color: $white;
   color: $darkerGray;
   border: solid 1px $darkerGray;
 }
 
-.root:hover .prevPrice.priceButton,
+.root:hover .prevPrice.priceButton, // root hover classes
 .root:hover .priceButton.prevPrice,
 .root:hover .prevPrice,
 .root:hover .priceButton {
