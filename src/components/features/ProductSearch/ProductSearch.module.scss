@@ -175,6 +175,15 @@ a {
     }
   }
 
+  @media (max-width: 539px){
+    .searchField{
+      width: 165px;
+      input{
+        width: 140px;
+      }
+    }
+  }
+
   button {
     @extend %interactive-hover;
     border: 0;
