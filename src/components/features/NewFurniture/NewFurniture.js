@@ -10,7 +10,6 @@ class NewFurniture extends React.Component {
     activePage: 0,
     activeCategory: 'bed',
     pagesCount: 0,
-    activePage: 0,
     categoryProducts: [],
     categories: [],
   };
@@ -31,44 +30,31 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
-  render() {
-    const { categories, products, rwd } = this.props;
-    const { activeCategory, activePage } = this.state;
-
-    const categoryProducts = products.filter(item => item.category === activeCategory);
-    const itemsPerPage = rwd.products || 8;
-    const pagesCount = Math.ceil(categoryProducts.length / itemsPerPage);
-
   rightAction() {
     if (this.state.activePage < this.state.pagesCount - 1) {
-      this.setState({ ...this.state, activePage: this.state.activePage + 1 });
+      this.setState({ activePage: this.state.activePage + 1 });
     }
   }
 
   leftAction() {
     if (this.state.activePage > 0) {
-      this.setState({ ...this.state, activePage: this.state.activePage - 1 });
+      this.setState({ activePage: this.state.activePage - 1 });
     }
   }
 
   render() {
-    const {
-      activeCategory,
-      activePage,
-      pagesCount,
-      categories,
-      categoryProducts,
-    } = this.state;
+    const { categories } = this.props;
+    const { activeCategory, activePage, pagesCount, categoryProducts } = this.state;
 
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
-        <li>
+        <li key={i}>
           <a
             onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
+            className={i === activePage ? styles.active : ''}
           >
-            page {i}
+            page {i + 1}
           </a>
         </li>
       );
@@ -91,7 +77,7 @@ class NewFurniture extends React.Component {
                     {categories.map(item => (
                       <li key={item.id}>
                         <a
-                          className={item.id === activeCategory && styles.active}
+                          className={item.id === activeCategory ? styles.active : ''}
                           onClick={() => this.handleCategoryChange(item.id)}
                         >
                           {item.name}
@@ -115,13 +101,6 @@ class NewFurniture extends React.Component {
                 ))}
             </div>
           </div>
-          <div className='row'>
-            {categoryProducts.slice(activePage * itemsPerPage, (activePage + 1) * itemsPerPage).map(item => (
-              <div key={item.id} className='col-xl-3 col-l-4 col-md-4 col-sm-6 col-12'>
-                <ProductBox {...item} />
-              </div>
-            ))}
-          </div>
         </div>
       </Swipeable>
     );
@@ -132,7 +111,6 @@ NewFurniture.propTypes = {
   rwd: PropTypes.shape({
     products: PropTypes.number,
   }),
-  children: PropTypes.node,
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -148,7 +126,6 @@ NewFurniture.propTypes = {
       stars: PropTypes.number,
       promo: PropTypes.string,
       newFurniture: PropTypes.bool,
-      products: PropTypes.number,
     })
   ),
 };
