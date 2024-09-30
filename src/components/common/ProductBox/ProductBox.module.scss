@@ -131,12 +131,31 @@
     visibility: visible;
     transition: opacity 0.25s ease;
   }
-  .price .priceButton {
-    color: $white ;
-    background-color: $darkerGray;
-  }
 
   .favorite {
     background-color: $primary;
   }
+}
+
+.root .prevPrice.priceButton,
+.root .priceButton.prevPrice {
+  background-color: $white;
+  color: $darkerGray;
+  border: solid 1px $darkerGray;
+}
+
+.root .prevPrice,
+.root .priceButton {
+  background-color: $white;
+  color: $darkerGray;
+  border: solid 1px $darkerGray;
+}
+
+.root .prevPrice.priceButton:hover,
+.root .priceButton.prevPrice:hover,
+.root .prevPrice:hover,
+.root .priceButton:hover {
+  background-color: $darkerGray;
+  color: $white;
+  border: solid 1px $darkerGray;
 }
