@@ -1,18 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
-import ComparisonBar from '../ComparisonBar/ComparisonBar';
-import { useSelector } from 'react';
-import { getCompare } from '../../../redux/productsRedux';
+import Swipeable from '../Swipeable/Swipeable';
 
 class NewFurniture extends React.Component {
   state = {
     activePage: 0,
     activeCategory: 'bed',
-    showComparisonBar: false,
+    pagesCount: 0,
+    categoryProducts: [],
+    categories: [],
   };
+
+  static getDerivedStateFromProps(props, state) {
+    const { categories, products } = props;
+    const { activeCategory } = state;
+    const categoryProducts = products.filter(item => item.category === activeCategory);
+    const pagesCount = Math.ceil(categoryProducts.length / 8);
+    return { ...state, pagesCount, categoryProducts, categories };
+  }
 
   handlePageChange(newPage) {
     this.setState({ activePage: newPage });
@@ -22,35 +30,47 @@ class NewFurniture extends React.Component {
     this.setState({ activeCategory: newCategory });
   }
 
-  componentDidUpdate(prevProps) {
-    const { comparedProducts } = this.props;
-    if (comparedProducts.length > 0 && !this.state.showComparisonBar) {
-      this.setState({ showComparisonBar: true });
+  rightAction() {
+    if (this.state.activePage < this.state.pagesCount - 1) {
+      this.setState({ activePage: this.state.activePage + 1 });
+    }
+  }
+
+  leftAction() {
+    if (this.state.activePage > 0) {
+      this.setState({ activePage: this.state.activePage - 1 });
     }
   }
 
   render() {
-    const { categories, products, comparedProducts } = this.props;
-    const { activeCategory, activePage, showComparisonBar } = this.state;
+  const { categories, products, rwd } = this.props;
+  const { activeCategory, activePage } = this.state;
 
-    const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
+  // Filter products based on the active category
+  const categoryProducts = products.filter(item => item.category === activeCategory);
+  
+  // Dynamically calculate the number of pages
+  const pagesCount = Math.ceil(categoryProducts.length / rwd.products);
 
-    const dots = [];
-    for (let i = 0; i < pagesCount; i++) {
-      dots.push(
-        <li>
-          <a
-            onClick={() => this.handlePageChange(i)}
-            className={i === activePage && styles.active}
-          >
-            page {i}
-          </a>
-        </li>
-      );
-    }
+  const dots = [];
+  for (let i = 0; i < pagesCount; i++) {
+    dots.push(
+      <li key={i}>
+        <a
+          onClick={() => this.handlePageChange(i)}
+          className={i === activePage ? styles.active : ''}
+        >
+          page {i + 1}
+        </a>
+      </li>
+    );
+  }
 
-    return (
+  return (
+    <Swipeable
+      leftAction={this.leftAction}
+      rightAction={this.rightAction}
+    >
       <div className={styles.root}>
         <div className='container'>
           <div className={styles.panelBar}>
@@ -63,7 +83,7 @@ class NewFurniture extends React.Component {
                   {categories.map(item => (
                     <li key={item.id}>
                       <a
-                        className={item.id === activeCategory && styles.active}
+                        className={item.id === activeCategory ? styles.active : ''}
                         onClick={() => this.handleCategoryChange(item.id)}
                       >
                         {item.name}
@@ -78,21 +98,25 @@ class NewFurniture extends React.Component {
             </div>
           </div>
           <div className='row'>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-xl-3 col-l-4 col-md-4 col-sm-6 col-12'>
-                <ProductBox {...item} />
-              </div>
-            ))}
-            {showComparisonBar && comparedProducts.length > 0 && <ComparisonBar />}
+            {categoryProducts
+              .slice(activePage * rwd.products, (activePage + 1) * rwd.products)
+              .map(item => (
+                <div key={item.id} className='col-3'>
+                  <ProductBox {...item} />
+                </div>
+              ))}
           </div>
         </div>
       </div>
-    );
-  }
+    </Swipeable>
+  );
+ }
 }
 
 NewFurniture.propTypes = {
-  children: PropTypes.node,
+  rwd: PropTypes.shape({
+    products: PropTypes.number,
+  }),
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -115,10 +139,7 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  rwd: { products: 8 },
 };
 
-const mapStateToProps = (state) => ({
-  comparedProducts: getCompare(state),
-})
-
-export default connect(mapStateToProps)(NewFurniture);
+export default NewFurniture;
