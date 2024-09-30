@@ -5,6 +5,15 @@
   border: 1px solid $lighterGray;
   margin-bottom: 2rem;
 
+  .buttons {
+    @extend %interactive-hover;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 10px;
+    opacity: 0;
+    visibility: hidden;
+  }
+
   a {
     @extend %interactive-hover;
   }
@@ -12,7 +21,6 @@
   .photo {
     position: relative;
     padding: 0 10px;
-    background-image: url('/public/images/productBox/');
     background-color: #f4f5f7;
     background-size: contain;
     background-position: center;
@@ -123,12 +131,31 @@
     visibility: visible;
     transition: opacity 0.25s ease;
   }
-  .price .priceButton {
-    color: $white ;
-    background-color: $darkerGray;
-  }
 
   .favorite {
     background-color: $primary;
   }
+}
+
+.root .prevPrice.priceButton,
+.root .priceButton.prevPrice {
+  background-color: $white;
+  color: $darkerGray;
+  border: solid 1px $darkerGray;
+}
+
+.root .prevPrice, 
+.root .priceButton {
+  background-color: $white;
+  color: $darkerGray;
+  border: solid 1px $darkerGray;
+}
+
+.root:hover .prevPrice.priceButton, // root hover classes
+.root:hover .priceButton.prevPrice,
+.root:hover .prevPrice,
+.root:hover .priceButton {
+  background-color: $darkerGray;
+  color: $white;
+  border: solid 1px $darkerGray;
 }
