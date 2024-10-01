@@ -10,7 +10,7 @@ const ComparisonBar = () => {
   const dispatch = useDispatch();
   if (selectedProducts.length === 0) return null;
 
-  const handleFavoriteToggle = (productId) => {
+  const handleFavoriteToggle = productId => {
     dispatch(changeCompare(productId));
   };
 
@@ -37,7 +37,7 @@ const ComparisonBar = () => {
         ))}
         <button className={styles.compareButton}>
           {/* <FontAwesomeIcon icon={faArrowRight} className={styles.compareIcon} /> */}
-            <span>Compare</span>
+          <span>Compare</span>
         </button>
       </div>
     </div>
