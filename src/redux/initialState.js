@@ -6,6 +6,12 @@ const initialState = {
     { id: 'table', name: 'Table' },
     { id: 'dining', name: 'Dining' },
   ],
+
+  rwd: {
+    products: 2,
+    size: '',
+  },
+
   products: [
     {
       id: 'aenean-ru-bristique-1',
