@@ -144,7 +144,9 @@ class NewFurniture extends React.Component {
 }
 
 NewFurniture.propTypes = {
-  children: PropTypes.node,
+  rwd: PropTypes.shape({
+    products: PropTypes.number,
+  }),
   categories: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -167,6 +169,7 @@ NewFurniture.propTypes = {
 NewFurniture.defaultProps = {
   categories: [],
   products: [],
+  rwd: { products: 8 },
 };
 
 export default NewFurniture;
