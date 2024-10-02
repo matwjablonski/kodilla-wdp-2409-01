@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import styles from './ProductBox.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,15 +9,46 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
-import { changeFavorite } from '../../../redux/productsRedux';
-import { useDispatch } from 'react-redux';
 
-const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, favorite, prevPrice }) => {
+import {
+  changeFavorite,
+  changeCompare,
+  getCompare,
+} from '../../../redux/productsRedux';
+import { useDispatch, useSelector } from 'react-redux';
+
+const ProductBox = ({
+  id,
+  name,
+  price,
+  promo,
+  stars,
+  compare,
+  favorite,
+  prevPrice,
+  backgroundPhoto,
+}) => {
   const dispatch = useDispatch();
+  const productsToCompare = useSelector(state => getCompare(state));
+  const isCompared = productsToCompare.some(product => product.id === id); // Check if the product is already in comparison
   const handleFavorite = e => {
     e.preventDefault();
     dispatch(changeFavorite(id));
   };
+
+  const handleCompare = e => {
+    e.preventDefault();
+    if (!isCompared) {
+      if (productsToCompare.length < 4) {
+        dispatch(changeCompare(id));
+      } else {
+        alert('Too many items for comparison. Only 4 items are allowed.');
+      }
+    } else {
+      alert('Already in comparison.');
+    }
+  };
+
   return (
     <div className={styles.root}>
       <div className={styles.photo}>
@@ -53,15 +84,18 @@ const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, f
       <div className={styles.line}></div>
       <div className={styles.actions}>
         <div className={styles.outlines}>
-          <Button 
+          <Button
+            className={favorite && styles.active}
             variant='outline'
             onClick={handleFavorite}
-            className={favorite && styles.active }
           >
-
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
-          <Button className={compare && styles.active} variant='outline'>
+          <Button
+            className={compare && styles.active}
+            variant='outline'
+            onClick={handleCompare}
+          >
             <FontAwesomeIcon icon={faExchangeAlt}>Add to compare</FontAwesomeIcon>
           </Button>
         </div>
@@ -72,11 +106,15 @@ const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, f
               noHover
               className={`${styles.prevPrice} ${styles.priceButton}`}
             >
-            $ {prevPrice}
+              $ {prevPrice}
             </Button>
           )}
-          <Button noHover variant='small' className={styles.priceButton}>
-          $ {price}
+          <Button
+            noHover
+            variant='small'
+            className={`${styles.curentPrice} ${styles.priceButton}`}
+          >
+            $ {price}
           </Button>
         </div>
       </div>
@@ -85,15 +123,14 @@ const ProductBox = ({ id, name, price, promo, stars, backgroundPhoto, compare, f
 };
 
 ProductBox.propTypes = {
-  children: PropTypes.node,
-  id: PropTypes.string,
-  name: PropTypes.string,
-  price: PropTypes.number,
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
   promo: PropTypes.string,
-  stars: PropTypes.number,
+  stars: PropTypes.number.isRequired,
   compare: PropTypes.bool,
   favorite: PropTypes.bool,
-  backgroundPhoto: PropTypes.string,
+  backgroundPhoto: PropTypes.string.isRequired,
   prevPrice: PropTypes.number,
 };
 

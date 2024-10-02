@@ -1,0 +1,12 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  padding: 1rem 0;
+  @extend %interactive-hover;
+    .promotedTab{
+        height: 450px;
+        display: flex;
+        flex-direction: row;
+        align-items: stretch;
+    }
+}
