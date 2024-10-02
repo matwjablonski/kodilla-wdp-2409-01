@@ -354,9 +354,12 @@ const initialState = {
     rNumber: '200.00',
     pBottomTitle: 'special collection',
     pBottomSubtitle: 'save up to 45% of furniture',
-    pictureLeft: '',
-    pictureTopRight: '',
-    pictureBottomRight: '',
+    pictureLeft: 'sofa.jpg',
+    pictureLeftAlt: 'sofa',
+    pictureTopRight: 'twoChairs_extra.jpg',
+    pictureTopRightAlt: 'two chairs',
+    pictureBottomRight: 'bed.jpg',
+    pictureBottomRightAlt: 'bed',
   }
 };
 
