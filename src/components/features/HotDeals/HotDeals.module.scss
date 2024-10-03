@@ -1,0 +1,235 @@
+@import "../../../styles/settings.scss";
+
+.root {
+  background-color: $white;
+  height: 100%;
+  @extend %interactive-hover;
+
+  .topText {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background-color: $darkGray;
+
+    p {
+      margin: 0;
+      color: $white;
+      text-transform: uppercase;
+    }
+
+    .pagination {
+      display: flex;
+      padding: 0;
+      margin: 0;
+
+      li {
+        list-style: none;
+        margin: 3px;
+
+        a {
+          display: block;
+          width: 13px;
+          height: 13px;
+          border-radius: 50%;
+          background-color: $white;
+          font-size: 0;
+
+          &.active,
+          &:hover {
+            background-color: $primary;
+          }
+        }
+      }
+    }
+  }
+
+  .product {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    .productCol {
+      flex: 0 0 100%;
+      background-color: $white;
+
+      .photo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 290px;
+        overflow: hidden;
+        background-color: $white;
+        position: relative;
+
+        img {
+          max-width: 100%;
+          max-height: 100%;
+          object-fit: contain;
+        }
+
+        .cartButton {
+          position: absolute;
+          opacity: 0;
+          transition: opacity 0.25s ease;
+        }
+
+        .dealTimeCounter {
+          display: flex;
+          position: absolute;
+          bottom: 3px;
+          justify-content: center;
+          width: 100%;
+          opacity: 0;
+          transition: opacity 0.85s ease;
+
+          .time {
+            justify-content: center;
+            align-items: center;
+            margin: 0 5px;
+            background-color: $lightGray;
+            width: 60px;
+            height: 60px;
+            border-radius: 30px;
+            color: $white;
+
+            h3 {
+              font-size: 22px;
+              margin: 8px 1px 0 1px;
+              text-align: center;
+            }
+
+            h5 {
+              font-size: 12px;
+              margin: 1px;
+              text-align: center;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      .bottomContent {
+        display: flex;
+        flex-direction: column;
+        padding: 5px 0;
+        color: $white;
+        justify-content: center;
+        align-items: center;
+        background-color: $white;
+
+        h5 {
+          color: $darkerGray;
+          font-size: 16px;
+        }
+
+        .stars {
+          a {
+            text-decoration: none;
+            color: $darkGray;
+          }
+        }
+      }
+
+      .line {
+        margin: 0 10px;
+        border-bottom: 2px solid $brightGray;
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: -1px;
+          left: 50%;
+          width: 30px;
+          border-bottom: 4px solid $primary;
+          transform: translateX(-50%);
+        }
+      }
+
+      .actions {
+        padding: 15px 10px 10px 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .prevPrice {
+          text-decoration: line-through;
+        }
+
+        .outlines {
+          .active {
+            background-color: $primary;
+          }
+          a {
+            margin: 0 3px;
+          }
+        }
+
+        .price {
+          display: flex;
+          align-items: center;
+          justify-content: flex-end;
+          transition: background-color 0.25s ease-in-out;
+          background-color: $white;
+
+          .priceButton {
+            color: $darkerGray;
+            background-color: $white;
+            border: solid 1px $darkerGray;
+            transition: background-color 0.25s ease-in-out, color 0.25s ease-in-out;
+            margin: 0 3px;
+          }
+        }
+      }
+    }
+  }
+
+  .hotDealsContainer:hover {
+    .productCol {
+      .price .priceButton {
+        color: $white;
+        background-color: $darkerGray;
+      }
+
+      .photo {
+        .cartButton {
+          opacity: 1;
+        }
+
+        .dealTimeCounter {
+          opacity: 0.85;
+        }
+      }
+    }
+  }
+
+  /* Fade Effect CSS */
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .fadeOut {
+    animation: fadeOut 0.5s forwards;
+  }
+  
+  .fadeIn {
+    animation: fadeIn 0.5s forwards;
+  }
+  
+}

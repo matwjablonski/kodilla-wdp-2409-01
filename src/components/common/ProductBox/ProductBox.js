@@ -10,13 +10,27 @@ import {
 import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 
-import { changeFavorite, changeCompare, getCompare } from '../../../redux/productsRedux';
+import {
+  changeFavorite,
+  changeCompare,
+  getCompare,
+} from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
 import ComparisonBar from '../../features/ComparisonBar/ComparisonBar';
 
-const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice, backgroundPhoto }) => {
+const ProductBox = ({
+  id,
+  name,
+  price,
+  promo,
+  stars,
+  compare,
+  favorite,
+  prevPrice,
+  backgroundPhoto,
+}) => {
   const dispatch = useDispatch();
-  const productsToCompare = useSelector((state) => getCompare(state));
+  const productsToCompare = useSelector(state => getCompare(state));
   const isCompared = productsToCompare.some(product => product.id === id); // Check if the product is already in comparison
   const handleFavorite = e => {
     e.preventDefault();
@@ -88,11 +102,19 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
         </div>
         <div className={styles.price}>
           {prevPrice && (
-            <Button variant='small' noHover className={`${styles.prevPrice} ${styles.priceButton}`}>
+            <Button
+              variant='small'
+              noHover
+              className={`${styles.prevPrice} ${styles.priceButton}`}
+            >
               $ {prevPrice}
             </Button>
           )}
-          <Button noHover variant='small' className={`${styles.prevPrice} b${styles.priceButton}`}>
+          <Button
+            noHover
+            variant='small'
+            className={`${styles.curentPrice} ${styles.priceButton}`}
+          >
             $ {price}
           </Button>
         </div>
@@ -112,7 +134,6 @@ ProductBox.propTypes = {
   favorite: PropTypes.bool,
   backgroundPhoto: PropTypes.string.isRequired,
   prevPrice: PropTypes.number,
-  favorite: PropTypes.bool,
 };
 
 export default ProductBox;
