@@ -12,6 +12,7 @@ import Button from '../Button/Button';
 
 import { changeFavorite, changeCompare, getCompare } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import ComparisonBar from '../../features/ComparisonBar/ComparisonBar';
 
 const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPrice, backgroundPhoto }) => {
   const dispatch = useDispatch();
@@ -96,6 +97,7 @@ const ProductBox = ({ id, name, price, promo, stars, compare, favorite, prevPric
           </Button>
         </div>
       </div>
+      {compare && <ComparisonBar />}
     </div>
   );
 };
