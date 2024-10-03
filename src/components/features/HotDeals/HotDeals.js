@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import styles from './HotDeals.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
-  faStar,
   faExchangeAlt,
   faShoppingBasket,
   faEye,
 } from '@fortawesome/free-solid-svg-icons';
-import { faStar as farStar, faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
+import StarReview from '../../common/StarReview/StarReview';
 import { changeFavorite } from '../../../redux/productsRedux';
 import { connect } from 'react-redux';
 
@@ -84,7 +84,7 @@ class HotDeals extends React.Component {
       dealsDots.push(
         <li key={i}>
           <a
-            onClick={() => this.handleDealPageChange(i)} // Manual page change
+            onClick={() => this.handleDealPageChange(i)}
             className={i === activeDealPage ? styles.active : ''}
           >
             Page {i}
@@ -140,17 +140,7 @@ class HotDeals extends React.Component {
                   </div>
                   <div className={styles.bottomContent}>
                     <h5>{item.name}</h5>
-                    <div className={styles.stars}>
-                      {[1, 2, 3, 4, 5].map(i => (
-                        <a key={i} href='#'>
-                          {i <= item.stars ? (
-                            <FontAwesomeIcon icon={faStar}>{i} stars</FontAwesomeIcon>
-                          ) : (
-                            <FontAwesomeIcon icon={farStar}>{i} stars</FontAwesomeIcon>
-                          )}
-                        </a>
-                      ))}
-                    </div>
+                    <StarReview stars={item.stars} id={item.id} />
                   </div>
                   <div className={styles.line}></div>
                   <div className={styles.actions}>
