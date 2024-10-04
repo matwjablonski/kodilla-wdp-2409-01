@@ -181,11 +181,11 @@ class HotDeals extends React.Component {
                           noHover
                           className={`${styles.prevPrice} ${styles.priceButton}`}
                         >
-                          $ {item.prevPrice}
+                          ${item.prevPrice}
                         </Button>
                       )}
                       <Button noHover variant='small' className={styles.priceButton}>
-                        $ {item.price}
+                        ${item.price}
                       </Button>
                     </div>
                   </div>
