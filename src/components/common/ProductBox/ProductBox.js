@@ -16,6 +16,7 @@ import {
   getCompare,
 } from '../../../redux/productsRedux';
 import { useDispatch, useSelector } from 'react-redux';
+import ComparisonBar from '../../features/ComparisonBar/ComparisonBar';
 
 const ProductBox = ({
   id,
@@ -118,6 +119,7 @@ const ProductBox = ({
           </Button>
         </div>
       </div>
+      {compare && <ComparisonBar />}
     </div>
   );
 };
