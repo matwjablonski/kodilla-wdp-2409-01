@@ -13,21 +13,17 @@ const StarReview = props => {
 
   const [hoveredStar, setHoveredStar] = useState(null);
 
-  const existingReview = useSelector(state => {
-    return getReviewById(state, id);
-  });
+  const existingReview = useSelector(state => getReviewById(state, id));
 
   const handleStarClick = (e, starNumber) => {
     e.preventDefault();
 
-    if (existingReview) {
-      if (existingReview.stars === starNumber) {
-        dispatch(deleteReview(id));
-      } else {
-        dispatch(deleteReview(id));
-        dispatch(addReview({ id, stars: starNumber }));
-      }
+    if (!existingReview) {
+      dispatch(addReview({ id, stars: starNumber }));
+    } else if (existingReview.stars === starNumber) {
+      dispatch(deleteReview(id));
     } else {
+      dispatch(deleteReview(id));
       dispatch(addReview({ id, stars: starNumber }));
     }
   };
