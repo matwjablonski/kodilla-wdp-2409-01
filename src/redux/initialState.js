@@ -349,7 +349,7 @@ const initialState = {
     leftTitle: 'guest room',
     leftSubtitle: 'sofa',
     leftNumber: '-20%',
-    rUpperTitle: 'ofice chair',
+    rUpperTitle: 'office chair',
     rUpperSubtitle: 'collection',
     rNumber: '200.00',
     pBottomTitle: 'special collection',
