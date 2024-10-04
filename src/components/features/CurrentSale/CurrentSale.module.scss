@@ -20,7 +20,7 @@
         position: relative;
         width: 100%;
         height: 410px;
-        @media (max-width: 992px) {
+        @media (max-width: 994px) {
           height: 330px;
         }
 
@@ -62,7 +62,7 @@
               text-transform: uppercase;
               font-size: 45px;
               font-weight: 200;
-              @media (max-width: 992px) {
+              @media (max-width: 994px) {
                 font-size: 170%;
                 margin-right: 0.5rem;
               }
@@ -73,7 +73,7 @@
                 text-transform: uppercase;
                 font-size: 45px;
                 font-weight: 600;
-                @media (max-width: 992px) {
+                @media (max-width: 994px) {
                   font-size: 170%;
                 }
             }
@@ -87,7 +87,7 @@
             text-transform: uppercase;
             font-size: 18px;
             font-weight: 200;
-            @media (max-width: 992px) {
+            @media (max-width: 994px) {
               font-size: 70%;
             }
           }
@@ -100,7 +100,7 @@
             color: $darkerGray;
             border-radius: 3px;
             font-weight: 500;
-            @media (max-width: 992px) {
+            @media (max-width: 994px) {
               font-size: 100%;
               padding: 0.5rem 0.75rem;
             }

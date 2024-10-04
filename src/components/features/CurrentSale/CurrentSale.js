@@ -38,11 +38,11 @@ class CurrentSale extends React.Component {
 
     return (
       <div className={styles.root}>
-        <div className={styles.currentSalesContainer}>
-          <Swipeable
-            leftAction={() => this.handleDealPageChange(activeSalePage - 1)}
-            rightAction={() => this.handleDealPageChange(activeSalePage + 1)}
-          >
+        <Swipeable
+          leftAction={() => this.handleDealPageChange(activeSalePage - 1)}
+          rightAction={() => this.handleDealPageChange(activeSalePage + 1)}
+        >
+          <div className={styles.currentSalesContainer}>
             <div
               className={`${styles.contentContainer} ${
                 fading ? styles.fadeOut : styles.fadeIn
@@ -72,32 +72,33 @@ class CurrentSale extends React.Component {
                   </div>
                 ))}
             </div>
-          </Swipeable>
-          <div className={styles.navigation}>
-            <Button
-              variant='small'
-              hover
-              className={styles.previousPage}
-              onClick={e => {
-                e.preventDefault();
-                this.handleDealPageChange(activeSalePage - 1);
-              }}
-            >
-              <FontAwesomeIcon icon={faArrowLeft} />
-            </Button>
-            <Button
-              variant='small'
-              hover
-              className={styles.nextPage}
-              onClick={e => {
-                e.preventDefault();
-                this.handleDealPageChange(activeSalePage + 1);
-              }}
-            >
-              <FontAwesomeIcon icon={faArrowRight} />
-            </Button>
+
+            <div className={styles.navigation}>
+              <Button
+                variant='small'
+                hover
+                className={styles.previousPage}
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleDealPageChange(activeSalePage - 1);
+                }}
+              >
+                <FontAwesomeIcon icon={faArrowLeft} />
+              </Button>
+              <Button
+                variant='small'
+                hover
+                className={styles.nextPage}
+                onClick={e => {
+                  e.preventDefault();
+                  this.handleDealPageChange(activeSalePage + 1);
+                }}
+              >
+                <FontAwesomeIcon icon={faArrowRight} />
+              </Button>
+            </div>
           </div>
-        </div>
+        </Swipeable>
       </div>
     );
   }

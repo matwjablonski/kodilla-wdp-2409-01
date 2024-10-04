@@ -5,6 +5,7 @@ import styles from './Swipeable.module.scss';
 const Swipeable = ({ leftAction, rightAction, children }) => {
   const [xStart, setXStart] = useState(undefined);
   const onMouseDown = e => {
+    e.preventDefault();
     setXStart(e.clientX);
   };
 
