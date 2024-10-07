@@ -6,6 +6,7 @@ import categoriesReducer from './categoriesRedux';
 import productsReducer from './productsRedux';
 import rwdReducer from './rwdRedux';
 import currentSaleReducer from './currentSaleRedux';
+import promotionReducer from './promotionRedux';
 import reviewsReducer from './reviewsRedux';
 
 // define reducers
@@ -15,6 +16,7 @@ const reducers = {
   products: productsReducer,
   rwd: rwdReducer,
   currentSales: currentSaleReducer,
+  promotion: promotionReducer,
   reviews: reviewsReducer,
 };
 
