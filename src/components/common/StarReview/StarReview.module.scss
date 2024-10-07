@@ -1,0 +1,27 @@
+@import "../../../styles/settings.scss";
+
+.stars {
+    width:auto;
+  a {
+    text-decoration: none;
+    color: $darkGray;
+    @extend %interactive-hover;
+
+    &.activeStar {
+      color: $primary;
+
+      &:hover {
+        color: $darkOrange;
+      }
+    }
+
+    &:hover {
+      color: $primary;
+    }
+  }
+  &:hover {
+    a {
+        color: $primary;
+    }
+  }
+}

@@ -31,10 +31,10 @@ const MainLayout = ({ children }) => {
       rwdListener();
       dispatch(changeRWD({ products }));
     };
-  
+
     handleResize();
     window.addEventListener('resize', handleResize);
-  
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };

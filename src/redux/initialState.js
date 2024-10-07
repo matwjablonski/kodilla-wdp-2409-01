@@ -25,7 +25,6 @@ const initialState = {
       favorite: true,
       compare: true,
       backgroundPhoto: 'pexels-catscoming-707579.jpg',
-      prevPrice: 40,
       promoted: true,
     },
     {
@@ -33,14 +32,13 @@ const initialState = {
       name: 'Aenean Ru Bristique 2',
       category: 'table',
       price: 30,
-      prevPrice: false,
+      prevPrice: 40,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
       favorite: true,
       compare: false,
       backgroundPhoto: 'pexels-cottonbro-5530255.jpg',
-      prevPrice: 40,
       promoted: true,
     },
     {
@@ -48,14 +46,13 @@ const initialState = {
       name: 'Aenean Ru Bristique 3',
       category: 'chair',
       price: 30,
-      prevPrice: false,
+      prevPrice: 40,
       stars: 2,
       promo: 'sale',
       newFurniture: true,
       favorite: false,
       compare: true,
       backgroundPhoto: 'pexels-valeriya-1129413.jpg',
-      prevPrice: 40,
       promoted: true,
     },
     {
@@ -454,6 +451,20 @@ const initialState = {
       topTextBold: 'with us',
       bottomText: 'Free shipping and unpacking over $400',
       photo: 'pexels-fotoaibe-1668860.jpg',
+    },
+  ],
+  reviews: [
+    {
+      id: 'aenean-ru-bristique-1',
+      stars: 4,
+    },
+    {
+      id: 'aenean-ru-bristique-2',
+      stars: 5,
+    },
+    {
+      id: 'aenean-ru-bristique-3',
+      stars: 5,
     },
   ],
   cart: {
