@@ -62,27 +62,19 @@
     background-color: $primary;
   }
 
-  .prevPrice {
-    margin-right: 10px;
-    text-decoration: line-through;
-  }
-
   .content {
     text-align: center;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 
     h5 {
       color: $primary;
       font-size: 16px;
       line-height: 24px;
       letter-spacing: 1px;
-    }
-
-    .stars {
-      a {
-        text-decoration: none;
-        color: $darkGray;
-      }
     }
   }
 
@@ -115,6 +107,11 @@
       transition: background-color 0.25s ease-in-out;
       background-color: $white;
 
+      .prevPrice {
+        margin-right: 5px;
+        text-decoration: line-through;
+      }
+
       .priceButton {
         color: $darkerGray;
         background-color: $white;
@@ -137,24 +134,8 @@
   }
 }
 
-.root .prevPrice.priceButton,
-.root .priceButton.prevPrice {
-  background-color: $white;
-  color: $darkerGray;
-  border: solid 1px $darkerGray;
-}
-
-.root .prevPrice, 
-.root .priceButton {
-  background-color: $white;
-  color: $darkerGray;
-  border: solid 1px $darkerGray;
-}
-
-.root:hover .prevPrice.priceButton, // root hover classes
-.root:hover .priceButton.prevPrice,
-.root:hover .prevPrice,
-.root:hover .priceButton {
+.root:hover .prevPrice.priceButton,
+.root:hover .priceButton.curentPrice {
   background-color: $darkerGray;
   color: $white;
   border: solid 1px $darkerGray;

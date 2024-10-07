@@ -8,10 +8,10 @@ const Promoted = () => {
     <div className={styles.root}>
       <div className='container'>
         <div className={styles.promotedTab}>
-          <div className='col-4'>
+          <div className={`col-md-4 d-none d-md-flex ${styles.hotDealsComponent}`}>
             <HotDeals />
           </div>
-          <div className='col-8'>
+          <div className={`col-12 col-md-8 ${styles.currentSaleComponent}`}>
             <CurrentSale />
           </div>
         </div>

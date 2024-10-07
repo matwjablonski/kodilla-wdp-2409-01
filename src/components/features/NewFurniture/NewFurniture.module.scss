@@ -62,6 +62,7 @@
             text-decoration: none;
             font-size: 18px;
             display: block;
+            cursor: pointer;
 
             &.active,
             &:hover {
@@ -146,5 +147,14 @@
         }
       }
     }
+  }
+  .fadeIn {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .fadeOut {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
   }
 }
