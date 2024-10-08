@@ -13,9 +13,11 @@
     position: relative;
     padding: 0;
     background-color: $brightGray;
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 320px;
 
     img {
       width: 100%; 
