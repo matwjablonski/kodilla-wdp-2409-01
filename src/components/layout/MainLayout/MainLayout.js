@@ -29,7 +29,6 @@ const MainLayout = ({ children }) => {
   useEffect(() => {
     const handleResize = () => {
       rwdListener();
-      dispatch(changeRWD({ products }));
     };
 
     handleResize();
@@ -38,6 +37,10 @@ const MainLayout = ({ children }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
+  }, []);
+
+  useEffect(() => {
+    dispatch(changeRWD({ products }));
   }, [dispatch, products]);
 
   return (

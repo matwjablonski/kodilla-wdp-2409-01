@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import styles from './NewFurniture.module.scss';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../Swipeable/Swipeable';
+import { connect } from 'react-redux';
+import { getRWD } from '../../../redux/rwdRedux';
 
 class NewFurniture extends React.Component {
   state = {
@@ -16,11 +18,11 @@ class NewFurniture extends React.Component {
   };
 
   static getDerivedStateFromProps(props, state) {
-    const { categories, products } = props;
+    const { categories, products, rwd } = props;
     const { activeCategory, fade } = state;
     const categoryProducts = products.filter(item => item.category === activeCategory);
-    const pagesCount = Math.ceil(categoryProducts.length / 8);
-    return { ...state, pagesCount, categoryProducts, categories, fade };
+    const pagesCount = Math.ceil(categoryProducts.length / rwd.products);
+    return { ...state, pagesCount, categoryProducts, categories, fade, rwd };
   }
 
   handlePageChange(newPage) {
@@ -79,6 +81,8 @@ class NewFurniture extends React.Component {
       fade,
     } = this.state;
 
+    const { rwd } = this.props;
+
     const dots = [];
     for (let i = 0; i < pagesCount; i++) {
       dots.push(
@@ -126,7 +130,7 @@ class NewFurniture extends React.Component {
             </div>
             <div className={`row ${fade ? styles.fadeOut : styles.fadeIn}`}>
               {categoryProducts
-                .slice(activePage * 8, (activePage + 1) * 8)
+                .slice(activePage * rwd.products, (activePage + 1) * rwd.products)
                 .map(item => (
                   <div
                     key={item.id}
@@ -172,4 +176,8 @@ NewFurniture.defaultProps = {
   rwd: { products: 8 },
 };
 
-export default NewFurniture;
+const mapStateToProps = state => ({
+  rwd: getRWD(state),
+});
+
+export default connect(mapStateToProps)(NewFurniture);
