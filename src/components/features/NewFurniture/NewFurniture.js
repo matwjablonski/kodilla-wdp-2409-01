@@ -1,23 +1,32 @@
-import styles from './NewFurniture.module.scss';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import ProductBox from '../../common/ProductBox/ProductBox';
 import Swipeable from '../Swipeable/Swipeable';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCompare, changeCompare } from '../../../redux/productsRedux';
+import { getRWD } from '../../../redux/rwdRedux';
 import ComparisonBar from '../../features/ComparisonBar/ComparisonBar';
+import styles from './NewFurniture.module.scss';
 
 const NewFurniture = ({ categories, products }) => {
   const [activePage, setActivePage] = useState(0);
   const [activeCategory, setActiveCategory] = useState('bed');
   const [fade, setFade] = useState(false);
+  const [pagesCount, setPagesCount] = useState(0);
+  const [categoryProducts, setCategoryProducts] = useState([]);
 
   const selectedProducts = useSelector(state => getCompare(state));
+  const rwd = useSelector(state => getRWD(state));
   const dispatch = useDispatch();
 
-  const categoryProducts = products.filter(item => item.category === activeCategory);
-  const pagesCount = Math.ceil(categoryProducts.length / 8);
+  // Update categoryProducts and pagesCount when activeCategory or products change
+  useEffect(() => {
+    const filteredProducts = products.filter(item => item.category === activeCategory);
+    setCategoryProducts(filteredProducts);
+    setPagesCount(Math.ceil(filteredProducts.length / rwd.products));
+  }, [activeCategory, products, rwd.products]);
 
+  // Handle page change with fade effect
   const handlePageChange = newPage => {
     setFade(true);
     setTimeout(() => {
@@ -26,6 +35,7 @@ const NewFurniture = ({ categories, products }) => {
     }, 300);
   };
 
+  // Handle category change with fade effect
   const handleCategoryChange = newCategory => {
     setFade(true);
     setTimeout(() => {
@@ -35,6 +45,7 @@ const NewFurniture = ({ categories, products }) => {
     }, 300);
   };
 
+  // Handle product comparison logic
   const handleCompare = id => {
     const isCompared = selectedProducts.some(product => product.id === id);
     if (!isCompared) {
@@ -91,15 +102,20 @@ const NewFurniture = ({ categories, products }) => {
             </div>
           </div>
           <div className={`row ${fade ? styles.fadeOut : styles.fadeIn}`}>
-            {categoryProducts.slice(activePage * 8, (activePage + 1) * 8).map(item => (
-              <div key={item.id} className='col-xl-3 col-l-4 col-md-4 col-sm-6 col-12'>
-                <ProductBox
-                  {...item}
-                  handleCompare={handleCompare}
-                  compare={selectedProducts.some(product => product.id === item.id)}
-                />
-              </div>
-            ))}
+            {categoryProducts
+              .slice(activePage * rwd.products, (activePage + 1) * rwd.products)
+              .map(item => (
+                <div
+                  key={item.id}
+                  className='col-xl-3 col-l-4 col-md-4 col-sm-6 col-12'
+                >
+                  <ProductBox
+                    {...item}
+                    handleCompare={handleCompare}
+                    compare={selectedProducts.some(product => product.id === item.id)}
+                  />
+                </div>
+              ))}
           </div>
           {selectedProducts.length > 0 && <ComparisonBar />}
         </div>
