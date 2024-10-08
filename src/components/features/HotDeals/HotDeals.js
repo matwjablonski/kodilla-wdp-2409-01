@@ -10,7 +10,11 @@ import {
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../../common/Button/Button';
 import StarReview from '../../common/StarReview/StarReview';
-import { changeFavorite } from '../../../redux/productsRedux';
+import {
+  changeFavorite,
+  changeCompare,
+  getCompare,
+} from '../../../redux/productsRedux';
 import { connect } from 'react-redux';
 
 class HotDeals extends React.Component {
@@ -73,8 +77,24 @@ class HotDeals extends React.Component {
     this.props.changeFavorite(id);
   };
 
+  handleCompare = (e, id) => {
+    e.preventDefault();
+    const { productsToCompare, dispatch } = this.props;
+    const isCompared = productsToCompare.some(product => product.id === id);
+
+    if (!isCompared) {
+      if (productsToCompare.length < 4) {
+        dispatch(changeCompare(id));
+      } else {
+        alert('Too many items for comparison. Only 4 items are allowed.');
+      }
+    } else {
+      alert('Already in comparison.');
+    }
+  };
+
   render() {
-    const { products } = this.props;
+    const { products, productsToCompare } = this.props;
     const { activeDealPage, fading } = this.state;
     const promotedProducts = products.filter(item => item.promoted === true);
     const pagesCount = Math.ceil(promotedProducts.length / 1);
@@ -156,8 +176,13 @@ class HotDeals extends React.Component {
                         <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
                       </Button>
                       <Button
-                        className={item.compare ? styles.active : ''}
+                        className={
+                          productsToCompare.some(product => product.id === item.id)
+                            ? styles.active
+                            : ''
+                        }
                         variant='outline'
+                        onClick={e => this.handleCompare(e, item.id)}
                       >
                         <FontAwesomeIcon icon={faExchangeAlt}>
                           Add to compare
@@ -199,11 +224,24 @@ HotDeals.propTypes = {
       favorite: PropTypes.bool,
     })
   ).isRequired,
+  productsToCompare: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+    })
+  ).isRequired,
   changeFavorite: PropTypes.func.isRequired,
+  changeCompare: PropTypes.func.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
-const mapDispatchToProps = dispatch => ({
-  changeFavorite: id => dispatch(changeFavorite(id)),
+const mapStateToProps = state => ({
+  productsToCompare: getCompare(state),
 });
 
-export default connect(null, mapDispatchToProps)(HotDeals);
+const mapDispatchToProps = dispatch => ({
+  dispatch,
+  changeFavorite: id => dispatch(changeFavorite(id)),
+  changeCompare: id => dispatch(changeCompare(id)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(HotDeals);
