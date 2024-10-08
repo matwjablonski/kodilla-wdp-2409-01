@@ -6,6 +6,8 @@ import { faExchangeAlt, faShoppingBasket } from '@fortawesome/free-solid-svg-ico
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import Button from '../Button/Button';
 import StarReview from '../StarReview/StarReview';
+import { changeFavorite } from '../../../redux/productsRedux';
+import { useDispatch } from 'react-redux';
 
 const ProductBox = ({
   id,
@@ -19,8 +21,11 @@ const ProductBox = ({
   backgroundPhoto,
   handleCompare,
 }) => {
+  const dispatch = useDispatch();
+
   const handleFavorite = e => {
     e.preventDefault();
+    dispatch(changeFavorite(id));
   };
 
   const handleCompareClick = e => {
