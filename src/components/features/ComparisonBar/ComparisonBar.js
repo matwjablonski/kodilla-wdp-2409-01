@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { getCompare, changeCompare } from '../../../redux/productsRedux';
 import styles from './ComparisonBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 const ComparisonBar = () => {
   const selectedProducts = useSelector(state => getCompare(state));
@@ -36,7 +36,6 @@ const ComparisonBar = () => {
           </div>
         ))}
         <button className={styles.compareButton}>
-          {/* <FontAwesomeIcon icon={faArrowRight} className={styles.compareIcon} /> */}
           <span>Compare</span>
         </button>
       </div>
