@@ -45,7 +45,7 @@
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
     z-index: 1;
-    pointer-events: none; // Prevents blocking of click events on image
+    pointer-events: none;
   }
 
   &:hover::before {
@@ -54,7 +54,7 @@
 
   &:hover .trashButton {
     display: block;
-    z-index: 2; // Ensure the button is above the dark layer
+    z-index: 2;
   }
 }
 
@@ -79,7 +79,7 @@
   border: none;
   font-size: 29px;
   display: none;
-  z-index: 3; // Ensure the button stays above the image and overlay
+  z-index: 3;
 }
 
 .imageContainer:hover .trashButton {
@@ -96,7 +96,7 @@
   cursor: pointer;
   display: flex;
   align-items: center;
-  justify-content: center; // Center the content inside the button
+  justify-content: center;
 
   &:hover {
     background-color: $darkerGray;
