@@ -61,7 +61,7 @@ const ProductBox = ({
           <Button
             className={favorite && styles.active}
             variant='outline'
-            onClick={handleFavorite} // Uses updated handleFavorite
+            onClick={handleFavorite}
           >
             <FontAwesomeIcon icon={faHeart}>Favorite</FontAwesomeIcon>
           </Button>
