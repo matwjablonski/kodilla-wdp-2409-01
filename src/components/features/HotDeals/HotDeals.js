@@ -31,7 +31,7 @@ class HotDeals extends React.Component {
   startAutoplay = () => {
     this.autoplayInterval = setInterval(() => {
       this.handleNextPage();
-    }, 3000);
+    }, 30000);
   };
 
   stopAutoplay = () => {

@@ -4,6 +4,10 @@
   background-color: $white;
   height: 100%;
   @extend %interactive-hover;
+  width: 90%;
+  @media (max-width: 994px) {
+    width: 100%;
+  }
 
   .topText {
     display: flex;
