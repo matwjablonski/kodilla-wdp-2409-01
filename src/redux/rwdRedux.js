@@ -1,4 +1,4 @@
-import { create } from 'react-test-renderer';
+import initialState from './initialState';
 
 /* selectors */
 export const getRWD = ({ rwd }) => rwd;
@@ -12,10 +12,10 @@ export const changeRWD = payload => ({ payload, type: CHANGE_RWD });
 
 /* reducer */
 
-export default function reducer(statePart = [], action = {}) {
+export default function reducer(statePart = initialState, action = {}) {
   switch (action.type) {
     case CHANGE_RWD:
-      return action.payload;
+      return { ...statePart, ...action.payload };
     default:
       return statePart;
   }
