@@ -23,7 +23,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: true,
-      compare: true,
+      compare: false,
       backgroundPhoto: 'pexels-catscoming-707579.jpg',
       promoted: true,
     },
@@ -51,7 +51,7 @@ const initialState = {
       promo: 'sale',
       newFurniture: true,
       favorite: false,
-      compare: true,
+      compare: false,
       backgroundPhoto: 'pexels-valeriya-1129413.jpg',
       promoted: true,
     },
@@ -485,7 +485,7 @@ const initialState = {
     pictureTopRightAlt: 'two chairs',
     pictureBottomRight: 'bed.jpg',
     pictureBottomRightAlt: 'bed',
-  }
+  },
 };
 
 export default initialState;
